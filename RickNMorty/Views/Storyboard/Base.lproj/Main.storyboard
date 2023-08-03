@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mtN-5j-B15">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="5cO-p1-YR0">
+            <objects>
+                <viewController id="n5B-0e-mwu" customClass="SettingsViewController" customModule="RickNMorty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uik-Rh-V6v">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="67u-tk-wu8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" selectedImage="gear" catalog="system" id="jAm-Iz-2kB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2fa-7V-p5M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-609" y="287"/>
+        </scene>
+        <!--Characters-->
+        <scene sceneID="HpQ-wD-ReL">
+            <objects>
+                <viewController id="CNI-7o-nxP" customClass="CharactersViewController" customModule="RickNMorty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gAd-0k-ogU">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gu9-ug-HNr">
+                                <rect key="frame" x="0.0" y="47" width="390" height="714"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0Uo-Nn-UYV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gu9-ug-HNr" firstAttribute="leading" secondItem="0Uo-Nn-UYV" secondAttribute="leading" id="EUN-lw-QDT"/>
+                            <constraint firstItem="gu9-ug-HNr" firstAttribute="top" secondItem="0Uo-Nn-UYV" secondAttribute="top" id="MyY-K6-Wlt"/>
+                            <constraint firstItem="0Uo-Nn-UYV" firstAttribute="bottom" secondItem="gu9-ug-HNr" secondAttribute="bottom" id="VRq-Hs-fyw"/>
+                            <constraint firstItem="0Uo-Nn-UYV" firstAttribute="trailing" secondItem="gu9-ug-HNr" secondAttribute="trailing" id="rl1-mu-avl"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Characters" selectedImage="list.bullet.rectangle" catalog="system" id="d6G-F0-MqH"/>
+                    <connections>
+                        <outlet property="tableView" destination="gu9-ug-HNr" id="e0g-9j-YGY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PeZ-L1-9FC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="92" y="-17"/>
+        </scene>
+        <!--Episodes-->
+        <scene sceneID="1pp-G3-qR2">
+            <objects>
+                <viewController id="OzD-gC-gfK" customClass="EpisodesViewController" customModule="RickNMorty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8uA-gb-lrf">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="tPA-mq-b91"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Episodes" selectedImage="tv" catalog="system" id="MjT-kv-ZpO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rCK-uk-yzU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-609" y="-320"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="J6X-Hu-VJP">
+            <objects>
+                <tabBarController id="mtN-5j-B15" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BNb-Wk-jGm">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="OzD-gC-gfK" kind="relationship" relationship="viewControllers" id="nMT-e8-3u4"/>
+                        <segue destination="n5B-0e-mwu" kind="relationship" relationship="viewControllers" id="eyf-ge-zW0"/>
+                        <segue destination="CNI-7o-nxP" kind="relationship" relationship="viewControllers" id="Gmb-y7-Ey8"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kAZ-cg-eKk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1518" y="-17"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gear" catalog="system" width="128" height="122"/>
+        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
+        <image name="tv" catalog="system" width="128" height="95"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
