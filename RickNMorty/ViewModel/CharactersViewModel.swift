@@ -14,6 +14,9 @@ class CharactersViewModel {
     private var nextPageUrl: String?
     private var prevPageUrl: String?
     
+    private var isNextPageUrlWarningShown: Bool = false
+    private var isPrevPageUrlWarningShown: Bool = false
+    
     func getCharacters() {
         self.eventHandler?(.loading)
         NetworkManager.shared.getCharacters { results in
@@ -30,17 +33,9 @@ class CharactersViewModel {
         }
     }
     
-    func numberOfRows() -> Int {
-        return self.characters.count
-    }
-    
-    func resultCell(at index: Int) -> ResultsModel {
-        return self.characters[index]
-    }
-    
     func getNextPage() {
         guard let nextPageUrl = self.nextPageUrl else {
-            print("No next page url")
+            showPrevNextPageUrlWarning()
             return
         }
         
@@ -60,7 +55,7 @@ class CharactersViewModel {
     
     func getPrevPage() {
         guard let prevPageUrl = self.prevPageUrl else {
-            print("no prev page url")
+            showPrevNextPageUrlWarning()
             return
         }
         
@@ -77,6 +72,33 @@ class CharactersViewModel {
             }
         }
     }
+    
+    private func showPrevNextPageUrlWarning() {
+        guard !isNextPageUrlWarningShown || !isPrevPageUrlWarningShown else { return }
+        isNextPageUrlWarningShown = true
+        isPrevPageUrlWarningShown = true
+        
+        if nextPageUrl == nil {
+            print("No next page url")
+        }
+        if prevPageUrl == nil {
+            print("No prev page url")
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
+            self?.isNextPageUrlWarningShown = false
+            self?.isPrevPageUrlWarningShown = false
+        }
+    }
+    
+    func numberOfRows() -> Int {
+        return self.characters.count
+    }
+    
+    func resultCell(at index: Int) -> ResultsModel {
+        return self.characters[index]
+    }
+    
     
 }
 

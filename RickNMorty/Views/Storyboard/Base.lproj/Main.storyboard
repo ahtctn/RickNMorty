@@ -18,7 +18,7 @@
                         <viewLayoutGuide key="safeArea" id="67u-tk-wu8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" selectedImage="gear" catalog="system" id="jAm-Iz-2kB"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="jAm-Iz-2kB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fa-7V-p5M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -46,7 +46,7 @@
                             <constraint firstItem="0Uo-Nn-UYV" firstAttribute="trailing" secondItem="gu9-ug-HNr" secondAttribute="trailing" id="rl1-mu-avl"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Characters" selectedImage="list.bullet.rectangle" catalog="system" id="d6G-F0-MqH"/>
+                    <tabBarItem key="tabBarItem" title="Characters" image="list.bullet.clipboard" catalog="system" id="d6G-F0-MqH"/>
                     <connections>
                         <outlet property="tableView" destination="gu9-ug-HNr" id="e0g-9j-YGY"/>
                     </connections>
@@ -65,7 +65,7 @@
                         <viewLayoutGuide key="safeArea" id="tPA-mq-b91"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Episodes" selectedImage="tv" catalog="system" id="MjT-kv-ZpO"/>
+                    <tabBarItem key="tabBarItem" title="Episodes" image="tv" catalog="system" id="MjT-kv-ZpO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rCK-uk-yzU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -93,7 +93,7 @@
     </scenes>
     <resources>
         <image name="gear" catalog="system" width="128" height="122"/>
-        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
+        <image name="list.bullet.clipboard" catalog="system" width="103" height="128"/>
         <image name="tv" catalog="system" width="128" height="95"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
