@@ -74,8 +74,12 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
         let scrollContentSizeHeight = scrollView.contentSize.height
         let scrollOffset = scrollView.contentOffset.y
         
-        if scrollOffset + scrollViewHeight >= scrollContentSizeHeight - 100 {
-            self.viewModel.getUpperPage()
+        if scrollOffset <= 100 {
+            self.viewModel.getPrevPage()
+        }
+        
+        else if scrollOffset + scrollViewHeight >= scrollContentSizeHeight - 100 {
+            self.viewModel.getNextPage()
         }
     }
 }

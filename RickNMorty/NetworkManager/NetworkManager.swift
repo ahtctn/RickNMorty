@@ -70,7 +70,7 @@ class NetworkManager {
         request(endpoint, completion: completion)
     }
     
-    func getUpperPage(url: String, completion: @escaping NetworkCompletion<CharactersModel>) {
+    func getOtherPages(url: String, completion: @escaping NetworkCompletion<CharactersModel>) {
         guard let url = URL(string: url.replacingOccurrences(of: Constants.baseURL, with: "" )) else {
             print("Get upper page url yanlış")
             completion(.failure(.invalidURL))
