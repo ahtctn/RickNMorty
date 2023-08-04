@@ -25,10 +25,8 @@ class CharactersViewModel {
                 self.characters = characters.results
                 self.nextPageUrl = characters.info.next
                 self.eventHandler?(.dataLoaded)
-                print(characters.info.next)
             case .failure(let error):
-                print(error.localizedDescription)
-                print("na bura")
+                print("\(error.localizedDescription) Get Characters Error In CharactersViewModel class.")
             }
         }
     }

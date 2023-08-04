@@ -26,6 +26,10 @@
 		7B60F9FA2A7A850A0097EC66 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60F9F92A7A850A0097EC66 /* CharactersViewController.swift */; };
 		7B60F9FC2A7A85150097EC66 /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60F9FB2A7A85150097EC66 /* EpisodesViewController.swift */; };
 		7B60F9FE2A7A851D0097EC66 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60F9FD2A7A851D0097EC66 /* SettingsViewController.swift */; };
+		7BF181D22A7BFC0B00775B52 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7BF181D12A7BFC0B00775B52 /* Kingfisher */; };
+		7BF181D42A7BFD8600775B52 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF181D32A7BFD8600775B52 /* UIImageViewExtension.swift */; };
+		7BF181D62A7C644A00775B52 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF181D52A7C644A00775B52 /* TabBarController.swift */; };
+		7BF330422A7C7DB5001A53D0 /* Arrow+UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF330412A7C7DB5001A53D0 /* Arrow+UIImageViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,9 @@
 		7B60F9F92A7A850A0097EC66 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		7B60F9FB2A7A85150097EC66 /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
 		7B60F9FD2A7A851D0097EC66 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		7BF181D32A7BFD8600775B52 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		7BF181D52A7C644A00775B52 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		7BF330412A7C7DB5001A53D0 /* Arrow+UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Arrow+UIImageViewExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BF181D22A7BFC0B00775B52 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +146,7 @@
 				7B60F9F92A7A850A0097EC66 /* CharactersViewController.swift */,
 				7B60F9FB2A7A85150097EC66 /* EpisodesViewController.swift */,
 				7B60F9FD2A7A851D0097EC66 /* SettingsViewController.swift */,
+				7BF181D52A7C644A00775B52 /* TabBarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -155,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				7B60F9DF2A7A82870097EC66 /* Constants.swift */,
+				7BF181D32A7BFD8600775B52 /* UIImageViewExtension.swift */,
+				7BF330412A7C7DB5001A53D0 /* Arrow+UIImageViewExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -202,6 +213,9 @@
 			dependencies = (
 			);
 			name = RickNMorty;
+			packageProductDependencies = (
+				7BF181D12A7BFC0B00775B52 /* Kingfisher */,
+			);
 			productName = RickNMorty;
 			productReference = 7B60F9BD2A7A81690097EC66 /* RickNMorty.app */;
 			productType = "com.apple.product-type.application";
@@ -230,6 +244,9 @@
 				Base,
 			);
 			mainGroup = 7B60F9B42A7A81690097EC66;
+			packageReferences = (
+				7BF181D02A7BFC0B00775B52 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 7B60F9BE2A7A81690097EC66 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -264,7 +281,9 @@
 				7B60F9E62A7A82C20097EC66 /* ServiceError.swift in Sources */,
 				7B60F9E22A7A82990097EC66 /* NetworkManager.swift in Sources */,
 				7B60F9EE2A7A83450097EC66 /* LocationModel.swift in Sources */,
+				7BF181D62A7C644A00775B52 /* TabBarController.swift in Sources */,
 				7B60F9F72A7A83A90097EC66 /* CharactersTableViewCell.swift in Sources */,
+				7BF330422A7C7DB5001A53D0 /* Arrow+UIImageViewExtension.swift in Sources */,
 				7B60F9F02A7A83610097EC66 /* CharactersViewModel.swift in Sources */,
 				7B60F9E02A7A82880097EC66 /* Constants.swift in Sources */,
 				7B60F9FA2A7A850A0097EC66 /* CharactersViewController.swift in Sources */,
@@ -272,6 +291,7 @@
 				7B60F9FE2A7A851D0097EC66 /* SettingsViewController.swift in Sources */,
 				7B60F9E42A7A82AE0097EC66 /* Endpoints.swift in Sources */,
 				7B60F9C12A7A81690097EC66 /* AppDelegate.swift in Sources */,
+				7BF181D42A7BFD8600775B52 /* UIImageViewExtension.swift in Sources */,
 				7B60F9C32A7A81690097EC66 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +510,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7BF181D02A7BFC0B00775B52 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7BF181D12A7BFC0B00775B52 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BF181D02A7BFC0B00775B52 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7B60F9B52A7A81690097EC66 /* Project object */;
 }

@@ -9,6 +9,10 @@ import UIKit
 
 class CharactersViewController: UIViewController {
     
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var headerImage: UIImageView!
+    @IBOutlet weak var headerTitle: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
     private var viewModel = CharactersViewModel()
     
@@ -16,9 +20,21 @@ class CharactersViewController: UIViewController {
         super.viewDidLoad()
         delegations()
         observeEvent()
+        
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
     }
     
     private func delegations() {
+        DispatchQueue.main.async {
+            self.headerImage.setImage(with: Constants.headerImageUrl)
+        }
         tableView.register(UINib(nibName: "CharactersTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.cellId)
         tableView.dataSource = self
         tableView.delegate = self
@@ -81,5 +97,9 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
         else if scrollOffset + scrollViewHeight >= scrollContentSizeHeight - 100 {
             self.viewModel.getNextPage()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }

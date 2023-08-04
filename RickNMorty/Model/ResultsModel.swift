@@ -13,7 +13,7 @@ struct ResultsModel: Codable {
     let name, status, species, type: String
     let gender: String
     let origin, location: LocationModel
-    let image: String
+    let image: String?
     let episode: [String]
     let url: String
     let created: String

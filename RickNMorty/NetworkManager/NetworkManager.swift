@@ -60,7 +60,6 @@ class NetworkManager {
     
     func getCharacters(completion: @escaping NetworkCompletion<CharactersModel>) {
         let endpoint = Endpoint<CharactersModel>.getCharacters
-        print(endpoint)
         request(endpoint, completion: completion)
     }
     
@@ -72,13 +71,12 @@ class NetworkManager {
     
     func getOtherPages(url: String, completion: @escaping NetworkCompletion<CharactersModel>) {
         guard let url = URL(string: url.replacingOccurrences(of: Constants.baseURL, with: "" )) else {
-            print("Get upper page url yanlış")
+            print("Get upper page url is wrong now.")
             completion(.failure(.invalidURL))
             return
         }
         
         let endpoint = Endpoint<CharactersModel>.custom(url: url.absoluteString)
-        print("\(endpoint)endpoint")
         request(endpoint, completion: completion)
     }
     

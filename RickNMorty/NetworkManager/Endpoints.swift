@@ -60,8 +60,6 @@ extension Endpoint: EndpointProtocol {
     
     func request() -> URLRequest {
         guard var components = URLComponents(string: baseURL + path) else { fatalError("baseurlerror")}
-        //components.path = path
-        print("\(components.url) URLsdlkfjsdlkfj")
         
         if let parameters = parameters {
             components.queryItems = parameters.map({ key, value in
