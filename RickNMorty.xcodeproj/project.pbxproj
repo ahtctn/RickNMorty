@@ -26,6 +26,8 @@
 		7B60F9FA2A7A850A0097EC66 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60F9F92A7A850A0097EC66 /* CharactersViewController.swift */; };
 		7B60F9FC2A7A85150097EC66 /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60F9FB2A7A85150097EC66 /* EpisodesViewController.swift */; };
 		7B60F9FE2A7A851D0097EC66 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60F9FD2A7A851D0097EC66 /* SettingsViewController.swift */; };
+		7BEE6DE22A7FE7EB004EAAC5 /* HeaderGenericView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEE6DE12A7FE7EB004EAAC5 /* HeaderGenericView.swift */; };
+		7BEE6DE42A7FE7F5004EAAC5 /* HeaderGenericView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BEE6DE32A7FE7F5004EAAC5 /* HeaderGenericView.xib */; };
 		7BF181D22A7BFC0B00775B52 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7BF181D12A7BFC0B00775B52 /* Kingfisher */; };
 		7BF181D42A7BFD8600775B52 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF181D32A7BFD8600775B52 /* UIImageViewExtension.swift */; };
 		7BF181D62A7C644A00775B52 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF181D52A7C644A00775B52 /* TabBarController.swift */; };
@@ -54,6 +56,8 @@
 		7B60F9F92A7A850A0097EC66 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		7B60F9FB2A7A85150097EC66 /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
 		7B60F9FD2A7A851D0097EC66 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		7BEE6DE12A7FE7EB004EAAC5 /* HeaderGenericView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderGenericView.swift; sourceTree = "<group>"; };
+		7BEE6DE32A7FE7F5004EAAC5 /* HeaderGenericView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderGenericView.xib; sourceTree = "<group>"; };
 		7BF181D32A7BFD8600775B52 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		7BF181D52A7C644A00775B52 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		7BF330412A7C7DB5001A53D0 /* Arrow+UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Arrow+UIImageViewExtension.swift"; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 		7B60F9D72A7A81BE0097EC66 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7B67779A2A7E7BAF0083CD9E /* GenericViews */,
 				7B60F9F12A7A83790097EC66 /* Cells */,
 				7B60F9DA2A7A82200097EC66 /* Storyboard */,
 				7B60F9D92A7A821A0097EC66 /* Controller */,
@@ -197,6 +202,15 @@
 			path = CharacterTableViewCell;
 			sourceTree = "<group>";
 		};
+		7B67779A2A7E7BAF0083CD9E /* GenericViews */ = {
+			isa = PBXGroup;
+			children = (
+				7BEE6DE12A7FE7EB004EAAC5 /* HeaderGenericView.swift */,
+				7BEE6DE32A7FE7F5004EAAC5 /* HeaderGenericView.xib */,
+			);
+			path = GenericViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,6 +278,7 @@
 				7B60F9CD2A7A816A0097EC66 /* LaunchScreen.storyboard in Resources */,
 				7B60F9CA2A7A816A0097EC66 /* Assets.xcassets in Resources */,
 				7B60F9C82A7A81690097EC66 /* Main.storyboard in Resources */,
+				7BEE6DE42A7FE7F5004EAAC5 /* HeaderGenericView.xib in Resources */,
 				7B60F9F82A7A83A90097EC66 /* CharactersTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +301,7 @@
 				7BF330422A7C7DB5001A53D0 /* Arrow+UIImageViewExtension.swift in Sources */,
 				7B60F9F02A7A83610097EC66 /* CharactersViewModel.swift in Sources */,
 				7B60F9E02A7A82880097EC66 /* Constants.swift in Sources */,
+				7BEE6DE22A7FE7EB004EAAC5 /* HeaderGenericView.swift in Sources */,
 				7B60F9FA2A7A850A0097EC66 /* CharactersViewController.swift in Sources */,
 				7B60F9EA2A7A82ED0097EC66 /* ResultsModel.swift in Sources */,
 				7B60F9FE2A7A851D0097EC66 /* SettingsViewController.swift in Sources */,

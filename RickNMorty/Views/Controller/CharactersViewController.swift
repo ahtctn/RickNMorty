@@ -9,9 +9,8 @@ import UIKit
 
 class CharactersViewController: UIViewController {
     
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var headerImage: UIImageView!
-    @IBOutlet weak var headerTitle: UILabel!
+    @IBOutlet weak var headerView: HeaderGenericView!
+    
     
     @IBOutlet weak var tableView: UITableView!
     private var viewModel = CharactersViewModel()
@@ -20,7 +19,7 @@ class CharactersViewController: UIViewController {
         super.viewDidLoad()
         delegations()
         observeEvent()
-        
+        setHeaderView()
         
         
     }
@@ -33,13 +32,12 @@ class CharactersViewController: UIViewController {
     
     private func delegations() {
         DispatchQueue.main.async {
-            self.headerImage.setImage(with: Constants.headerImageUrl)
+            self.tableView.register(UINib(nibName: "CharactersTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.cellId)
+            self.tableView.dataSource = self
+            self.tableView.delegate = self
+            self.tableView.rowHeight = UITableView.automaticDimension
+            self.tableView.estimatedRowHeight = 100 // Örneğin, ortalama bir hücre yüksekliği
         }
-        tableView.register(UINib(nibName: "CharactersTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.cellId)
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100 // Örneğin, ortalama bir hücre yüksekliği
     }
     
     private func observeEvent() {
@@ -62,6 +60,11 @@ class CharactersViewController: UIViewController {
             }
             
         }
+    }
+    
+    private func setHeaderView() {
+        self.headerView.headerText.text = "characters".capitalized
+        self.headerView.headerImage.setImage(with: Constants.headerImageUrl)
     }
 }
 
