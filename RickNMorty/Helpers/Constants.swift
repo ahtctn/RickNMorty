@@ -20,4 +20,11 @@ enum Constants {
         static let teleport: String = "teleport"
         static let rickNMortyHeaderAnimation: String = "rickNMortyHeaderAnimation"
     }
+    
+    enum Links {
+        static let githubLink: String = "https://www.github.com/ahtctn"
+        static let linkedinLink: String = "https://www.linkedin.com/in/ahtctn"
+        static let twitterLink: String = "https://www.twitter.com/aliDevJourney"
+        static let gmailLink: String = "ahtctn@gmail.com"
+    }
 }

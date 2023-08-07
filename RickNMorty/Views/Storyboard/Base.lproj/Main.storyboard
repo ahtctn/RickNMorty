@@ -78,21 +78,33 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="95" height="34.333333333333336"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Github"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="n5B-0e-mwu" eventType="touchUpInside" id="z6U-i5-4fM"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keb-Di-fGt">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keb-Di-fGt">
                                                         <rect key="frame" x="95" y="0.0" width="95" height="34.333333333333336"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Linkedin"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="n5B-0e-mwu" eventType="touchUpInside" id="kJR-bW-ro4"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hll-L8-VHX">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hll-L8-VHX">
                                                         <rect key="frame" x="190" y="0.0" width="95" height="34.333333333333336"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Twitter"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="n5B-0e-mwu" eventType="touchUpInside" id="UsU-WX-FQw"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTM-X1-iPY">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTM-X1-iPY">
                                                         <rect key="frame" x="285" y="0.0" width="95" height="34.333333333333336"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Gmail"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="n5B-0e-mwu" eventType="touchUpInside" id="MAm-gX-qXf"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -119,7 +131,11 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="15"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="githubButton" destination="rZg-cN-dDj" id="Bbz-UK-Ydx"/>
+                        <outlet property="gmailButton" destination="bTM-X1-iPY" id="a60-06-xVt"/>
                         <outlet property="headerView" destination="WgS-DA-gwa" id="b9y-lw-r3c"/>
+                        <outlet property="linkedinButton" destination="keb-Di-fGt" id="hPi-Pd-Qpd"/>
+                        <outlet property="twitterButton" destination="hll-L8-VHX" id="LkU-1Q-nnH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fa-7V-p5M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
