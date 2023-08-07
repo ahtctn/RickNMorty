@@ -9,12 +9,19 @@ import UIKit
 
 class EpisodesViewController: UIViewController {
 
+    let selectedImage = UIImage(named: "tv")
+    let unselectedImage = UIImage(named: "tvUnselected")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setTabbarImage()
     }
     
+    private func setTabbarImage() {
+        tabBarItem = UITabBarItem(title: "", image: unselectedImage, selectedImage: selectedImage)
+    }
 
     /*
     // MARK: - Navigation

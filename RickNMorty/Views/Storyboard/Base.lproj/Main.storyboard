@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings-->
+        <!--Settings View Controller-->
         <scene sceneID="5cO-p1-YR0">
             <objects>
                 <viewController id="n5B-0e-mwu" customClass="SettingsViewController" customModule="RickNMorty" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,8 +33,9 @@
                             <constraint firstItem="WgS-DA-gwa" firstAttribute="trailing" secondItem="67u-tk-wu8" secondAttribute="trailing" id="nzR-CS-MUL"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="jAm-Iz-2kB">
-                        <imageReference key="image" image="gear" catalog="system" symbolScale="large"/>
+                    <tabBarItem key="tabBarItem" title="" landscapeImage="gear" largeContentSizeImage="gear" id="jAm-Iz-2kB">
+                        <imageReference key="image" image="gear" symbolScale="large"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="15"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="headerView" destination="WgS-DA-gwa" id="b9y-lw-r3c"/>
@@ -44,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="-609" y="287"/>
         </scene>
-        <!--Characters-->
+        <!--Characters View Controller-->
         <scene sceneID="qdp-jd-5KY">
             <objects>
                 <viewController id="Kba-ll-BHv" customClass="CharactersViewController" customModule="RickNMorty" customModuleProvider="target" sceneMemberID="viewController">
@@ -74,8 +75,9 @@
                             <constraint firstItem="vE4-M6-9Cw" firstAttribute="leading" secondItem="iPf-cC-mKM" secondAttribute="leading" id="zx0-XC-qWa"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Characters" id="Uee-9l-mJG">
-                        <imageReference key="image" image="list.bullet" catalog="system" symbolScale="large"/>
+                    <tabBarItem key="tabBarItem" title="" landscapeImage="characters" largeContentSizeImage="characters" id="Uee-9l-mJG">
+                        <imageReference key="image" image="characters" symbolScale="large"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="15"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="headerView" destination="N10-eD-lts" id="w73-fF-hW0"/>
@@ -86,7 +88,7 @@
             </objects>
             <point key="canvasLocation" x="96.92307692307692" y="0.0"/>
         </scene>
-        <!--Episodes-->
+        <!--Episodes View Controller-->
         <scene sceneID="1pp-G3-qR2">
             <objects>
                 <viewController id="OzD-gC-gfK" customClass="EpisodesViewController" customModule="RickNMorty" customModuleProvider="target" sceneMemberID="viewController">
@@ -97,8 +99,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" name="greenColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Episodes" id="MjT-kv-ZpO">
-                        <imageReference key="image" image="tv" catalog="system" symbolScale="large"/>
+                    <tabBarItem key="tabBarItem" title="" image="tv" landscapeImage="tv" largeContentSizeImage="tv" id="MjT-kv-ZpO">
+                        <color key="badgeColor" name="greenColor"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="15"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rCK-uk-yzU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -109,14 +112,13 @@
         <scene sceneID="J6X-Hu-VJP">
             <objects>
                 <tabBarController id="mtN-5j-B15" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="BNb-Wk-jGm">
+                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="BNb-Wk-jGm">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="greenColor"/>
                         <color key="tintColor" name="orangeColor"/>
-                        <color key="selectedImageTintColor" name="yellowColor"/>
-                        <tabBarAppearance key="standardAppearance" backgroundImageContentMode="scaleToFill">
-                            <color key="backgroundColor" name="greenColor"/>
+                        <tabBarAppearance key="standardAppearance" backgroundImage="characters" backgroundImageContentMode="scaleAspectFit">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tabBarAppearance>
                         <tabBarAppearance key="scrollEdgeAppearance">
                             <color key="backgroundColor" name="greenColor"/>
@@ -142,9 +144,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gear" catalog="system" width="128" height="122"/>
-        <image name="list.bullet" catalog="system" width="128" height="87"/>
-        <image name="tv" catalog="system" width="128" height="95"/>
+        <image name="characters" width="55" height="55"/>
+        <image name="gear" width="55" height="55"/>
+        <image name="tv" width="55" height="55"/>
         <namedColor name="greenColor">
             <color red="0.51764705882352946" green="0.61176470588235299" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -9,12 +9,15 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     @IBOutlet weak var headerView: HeaderGenericView!
+    let selectedImage = UIImage(named: "gear")
+    let unselectedImage = UIImage(named: "gearUnselected")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         headerView.headerText.text = "settings".capitalized
         headerView.headerImage.setImage(with: Constants.headerImageUrl)
+        tabBarItem = UITabBarItem(title: "", image: unselectedImage, selectedImage: selectedImage)
     }
     
     

@@ -10,22 +10,20 @@ import UIKit
 class CharactersViewController: UIViewController {
     
     @IBOutlet weak var headerView: HeaderGenericView!
-    
-    
     @IBOutlet weak var tableView: UITableView!
     private var viewModel = CharactersViewModel()
+    
+    
+    let selectedImage = UIImage(named: "characters")
+    let unselectedImage = UIImage(named: "charactersUnselected")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         delegations()
         observeEvent()
         setHeaderView()
+        setTabbarImage()
         
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         
     }
@@ -65,6 +63,9 @@ class CharactersViewController: UIViewController {
     private func setHeaderView() {
         self.headerView.headerText.text = "characters".capitalized
         self.headerView.headerImage.setImage(with: Constants.headerImageUrl)
+    }
+    private func setTabbarImage() {
+        tabBarItem = UITabBarItem(title: "", image: unselectedImage, selectedImage: selectedImage)
     }
 }
 
