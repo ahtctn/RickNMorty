@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderGenericView" customModule="RickNMorty" customModuleProvider="target">
             <connections>
-                <outlet property="headerImage" destination="Itk-JH-iTT" id="06e-uz-IJA"/>
+                <outlet property="headerImage" destination="iYS-pS-wus" id="W81-e4-3qA"/>
                 <outlet property="headerText" destination="VYk-HR-jnj" id="c9v-fV-FEg"/>
             </connections>
         </placeholder>
@@ -28,21 +28,19 @@
                     <color key="textColor" name="yellowColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Itk-JH-iTT">
-                    <rect key="frame" x="117.66666666666669" y="24" width="100" height="100"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="100" id="DZQ-px-eOs"/>
-                        <constraint firstAttribute="width" constant="100" id="iaV-lK-2eR"/>
-                    </constraints>
-                </imageView>
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYS-pS-wus">
+                    <rect key="frame" x="187" y="50" width="198" height="110"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" name="greenColor"/>
             <constraints>
+                <constraint firstItem="iYS-pS-wus" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="66U-Y4-LRU"/>
+                <constraint firstItem="iYS-pS-wus" firstAttribute="leading" secondItem="VYk-HR-jnj" secondAttribute="trailing" constant="84.333333333333329" id="9jc-xO-Yje"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="VYk-HR-jnj" secondAttribute="bottom" constant="5" id="Dho-wt-ROn"/>
                 <constraint firstItem="VYk-HR-jnj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="EV0-uR-cjw"/>
-                <constraint firstItem="Itk-JH-iTT" firstAttribute="leading" secondItem="VYk-HR-jnj" secondAttribute="trailing" constant="15" id="FJ4-lt-3GB"/>
-                <constraint firstItem="Itk-JH-iTT" firstAttribute="centerY" secondItem="VYk-HR-jnj" secondAttribute="centerY" id="Nxb-YE-BnY"/>
+                <constraint firstItem="iYS-pS-wus" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="60" id="Pm9-rc-Ghz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iYS-pS-wus" secondAttribute="trailing" constant="5" id="r28-wJ-KMr"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="132" y="-11"/>

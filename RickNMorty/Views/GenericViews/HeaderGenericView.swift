@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import Lottie
 
 class HeaderGenericView: UIView {
-
+    
     @IBOutlet weak var headerText: UILabel!
-    @IBOutlet weak var headerImage: UIImageView!
+    @IBOutlet weak var headerImage: UIView!
     let nibName: String = "HeaderGenericView"
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,6 +35,16 @@ class HeaderGenericView: UIView {
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
     
+    func addLottieAnimation(animationName: String) {
+        let animationView = LottieAnimationView(name: animationName)
+        animationView.frame = headerImage.bounds
+        animationView.loopMode = .loop
+        animationView.contentMode = .scaleAspectFit
+        headerImage.addSubview(animationView)
+        
+        animationView.play()
+    }
     
-
+    
+    
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class EpisodesViewController: UIViewController {
 
+    @IBOutlet weak var headerView: HeaderGenericView!
     let selectedImage = UIImage(named: "tv")
     let unselectedImage = UIImage(named: "tvUnselected")
     
@@ -17,10 +18,16 @@ class EpisodesViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setTabbarImage()
+        setHeaderView()
     }
     
     private func setTabbarImage() {
         tabBarItem = UITabBarItem(title: "", image: unselectedImage, selectedImage: selectedImage)
+    }
+    
+    private func setHeaderView() {
+        headerView.addLottieAnimation(animationName: Constants.HeaderAnimations.mortyTwerking)
+        headerView.headerText.text = "episodes".capitalized
     }
 
     /*

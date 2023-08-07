@@ -11,5 +11,13 @@ enum Constants {
     static let pathCharacters: String = "/character"
     static let pathEpisodes: String = "/episode"
     static let cellId: String = "CellId"
-    static let headerImageUrl: String = "https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-non-toxic-rick-sanchez-18.png"
+    //static let headerImageUrl: String = "https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-non-toxic-rick-sanchez-18.png"
+    static let headerImageUrl: String = "file:///Users/ahmetalicetin/Desktop/rmheader%3F.png"
+    
+    enum HeaderAnimations {
+        static let mortyTwerking: String = "mortyTwerking"
+        static let mortyCrying: String = "mortyCrying"
+        static let teleport: String = "teleport"
+        static let rickNMortyHeaderAnimation: String = "rickNMortyHeaderAnimation"
+    }
 }

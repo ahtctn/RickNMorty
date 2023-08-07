@@ -3,7 +3,6 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,19 +21,101 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="82.666666666666671"/>
                                 <color key="backgroundColor" name="greenColor"/>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5kn-va-g3h">
+                                <rect key="frame" x="5" y="197" width="380" height="534"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="götür" translatesAutoresizingMaskIntoConstraints="NO" id="SKJ-Us-z51">
+                                        <rect key="frame" x="0.0" y="0.0" width="380" height="228.33333333333334"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABOUT ME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gG8-pk-lDQ">
+                                        <rect key="frame" x="0.0" y="248.33333333333331" width="380" height="49"/>
+                                        <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="40"/>
+                                        <color key="textColor" name="greenColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm a passionate iOS Developer " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohM-dl-9DX">
+                                        <rect key="frame" x="0.0" y="317.33333333333337" width="380" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.34509804840000002" green="0.34509804840000002" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and kind of a Rick &amp; Morty fan." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mU2-p0-Qwy">
+                                        <rect key="frame" x="0.0" y="357.66666666666663" width="380" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.34509804840000002" green="0.34509804840000002" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOLLOW ME!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY6-Dw-iUL">
+                                        <rect key="frame" x="0.0" y="398" width="380" height="36.666666666666686"/>
+                                        <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="30"/>
+                                        <color key="textColor" name="greenColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="RPV-wp-ZxF">
+                                        <rect key="frame" x="0.0" y="454.66666666666663" width="380" height="79.333333333333371"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ndn-7f-yJo">
+                                                <rect key="frame" x="0.0" y="0.0" width="380" height="55"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="githubLogo" translatesAutoresizingMaskIntoConstraints="NO" id="qmy-xQ-fm3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="95" height="55"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedinLogo" translatesAutoresizingMaskIntoConstraints="NO" id="AwU-6B-iu4">
+                                                        <rect key="frame" x="95" y="0.0" width="95" height="55"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xLogo" translatesAutoresizingMaskIntoConstraints="NO" id="wz3-M7-mtt">
+                                                        <rect key="frame" x="190" y="0.0" width="95" height="55"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gmailLogo" translatesAutoresizingMaskIntoConstraints="NO" id="asS-br-wHs">
+                                                        <rect key="frame" x="285" y="0.0" width="95" height="55"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Hh-zQ-CFJ">
+                                                <rect key="frame" x="0.0" y="45" width="380" height="34.333333333333343"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZg-cN-dDj">
+                                                        <rect key="frame" x="0.0" y="0.0" width="95" height="34.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Github"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keb-Di-fGt">
+                                                        <rect key="frame" x="95" y="0.0" width="95" height="34.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Linkedin"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hll-L8-VHX">
+                                                        <rect key="frame" x="190" y="0.0" width="95" height="34.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Twitter"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTM-X1-iPY">
+                                                        <rect key="frame" x="285" y="0.0" width="95" height="34.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Gmail"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="67u-tk-wu8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" name="greenColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5kn-va-g3h" secondAttribute="trailing" constant="5" id="Fht-iB-WfB"/>
                             <constraint firstItem="WgS-DA-gwa" firstAttribute="top" secondItem="uik-Rh-V6v" secondAttribute="top" id="Hv6-J1-E6N"/>
+                            <constraint firstItem="67u-tk-wu8" firstAttribute="bottom" secondItem="5kn-va-g3h" secondAttribute="bottom" constant="30" id="Lvh-8L-jpL"/>
                             <constraint firstItem="67u-tk-wu8" firstAttribute="bottom" secondItem="WgS-DA-gwa" secondAttribute="bottom" constant="678.33333333333326" id="NB4-Ng-WIJ"/>
+                            <constraint firstItem="5kn-va-g3h" firstAttribute="top" secondItem="67u-tk-wu8" secondAttribute="top" constant="150" id="P8p-sq-hly"/>
+                            <constraint firstItem="5kn-va-g3h" firstAttribute="leading" secondItem="67u-tk-wu8" secondAttribute="leading" constant="5" id="f3k-0Z-WVm"/>
                             <constraint firstItem="WgS-DA-gwa" firstAttribute="leading" secondItem="67u-tk-wu8" secondAttribute="leading" id="mRv-U8-Ahp"/>
                             <constraint firstItem="WgS-DA-gwa" firstAttribute="trailing" secondItem="67u-tk-wu8" secondAttribute="trailing" id="nzR-CS-MUL"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" landscapeImage="gear" largeContentSizeImage="gear" id="jAm-Iz-2kB">
-                        <imageReference key="image" image="gear" symbolScale="large"/>
+                    <tabBarItem key="tabBarItem" title="" image="gearUnselected" id="jAm-Iz-2kB">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="15"/>
                     </tabBarItem>
                     <connections>
@@ -75,8 +156,7 @@
                             <constraint firstItem="vE4-M6-9Cw" firstAttribute="leading" secondItem="iPf-cC-mKM" secondAttribute="leading" id="zx0-XC-qWa"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" landscapeImage="characters" largeContentSizeImage="characters" id="Uee-9l-mJG">
-                        <imageReference key="image" image="characters" symbolScale="large"/>
+                    <tabBarItem key="tabBarItem" title="" image="charactersUnselected" id="Uee-9l-mJG">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="15"/>
                     </tabBarItem>
                     <connections>
@@ -95,14 +175,29 @@
                     <view key="view" contentMode="scaleToFill" id="8uA-gb-lrf">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ivh-sU-oSF" customClass="HeaderGenericView" customModule="RickNMorty" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="82.666666666666671"/>
+                                <color key="backgroundColor" name="greenColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tPA-mq-b91"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" name="greenColor"/>
+                        <constraints>
+                            <constraint firstItem="ivh-sU-oSF" firstAttribute="leading" secondItem="tPA-mq-b91" secondAttribute="leading" id="GiW-Yd-yBs"/>
+                            <constraint firstItem="ivh-sU-oSF" firstAttribute="trailing" secondItem="tPA-mq-b91" secondAttribute="trailing" id="I8J-eP-9i1"/>
+                            <constraint firstItem="ivh-sU-oSF" firstAttribute="top" secondItem="8uA-gb-lrf" secondAttribute="top" id="JUq-t0-ily"/>
+                            <constraint firstItem="tPA-mq-b91" firstAttribute="bottom" secondItem="ivh-sU-oSF" secondAttribute="bottom" constant="678.33333333333326" id="YNR-9A-IM9"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tv" landscapeImage="tv" largeContentSizeImage="tv" id="MjT-kv-ZpO">
+                    <tabBarItem key="tabBarItem" title="" image="tvUnselected" id="MjT-kv-ZpO">
                         <color key="badgeColor" name="greenColor"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="15"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="headerView" destination="ivh-sU-oSF" id="mBY-Fw-ksz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rCK-uk-yzU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,8 +240,14 @@
     </scenes>
     <resources>
         <image name="characters" width="55" height="55"/>
-        <image name="gear" width="55" height="55"/>
-        <image name="tv" width="55" height="55"/>
+        <image name="charactersUnselected" width="55" height="55"/>
+        <image name="gearUnselected" width="55" height="55"/>
+        <image name="githubLogo" width="55" height="55"/>
+        <image name="gmailLogo" width="55" height="31"/>
+        <image name="götür" width="240" height="240"/>
+        <image name="linkedinLogo" width="55" height="55"/>
+        <image name="tvUnselected" width="55" height="55"/>
+        <image name="xLogo" width="55" height="41"/>
         <namedColor name="greenColor">
             <color red="0.51764705882352946" green="0.61176470588235299" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

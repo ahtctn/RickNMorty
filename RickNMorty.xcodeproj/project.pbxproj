@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B2571972A8141C000FFD2A9 /* mortyCrying.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B2571942A8141C000FFD2A9 /* mortyCrying.json */; };
+		7B2571982A8141C000FFD2A9 /* mortyTwerking.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B2571952A8141C000FFD2A9 /* mortyTwerking.json */; };
+		7B25719C2A81422A00FFD2A9 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7B25719B2A81422A00FFD2A9 /* Lottie */; };
+		7B2571A02A81462000FFD2A9 /* teleport.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B25719F2A81462000FFD2A9 /* teleport.json */; };
+		7B2571A62A814A6000FFD2A9 /* rickNMortyHeaderAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B2571A52A814A6000FFD2A9 /* rickNMortyHeaderAnimation.json */; };
 		7B60F9C12A7A81690097EC66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60F9C02A7A81690097EC66 /* AppDelegate.swift */; };
 		7B60F9C32A7A81690097EC66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60F9C22A7A81690097EC66 /* SceneDelegate.swift */; };
 		7B60F9C82A7A81690097EC66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B60F9C62A7A81690097EC66 /* Main.storyboard */; };
@@ -36,6 +41,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B2571942A8141C000FFD2A9 /* mortyCrying.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mortyCrying.json; sourceTree = "<group>"; };
+		7B2571952A8141C000FFD2A9 /* mortyTwerking.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mortyTwerking.json; sourceTree = "<group>"; };
+		7B25719F2A81462000FFD2A9 /* teleport.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teleport.json; sourceTree = "<group>"; };
+		7B2571A52A814A6000FFD2A9 /* rickNMortyHeaderAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rickNMortyHeaderAnimation.json; sourceTree = "<group>"; };
 		7B60F9BD2A7A81690097EC66 /* RickNMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickNMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B60F9C02A7A81690097EC66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B60F9C22A7A81690097EC66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,12 +80,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BF181D22A7BFC0B00775B52 /* Kingfisher in Frameworks */,
+				7B25719C2A81422A00FFD2A9 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B2571932A8141B100FFD2A9 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				7B2571952A8141C000FFD2A9 /* mortyTwerking.json */,
+				7B2571942A8141C000FFD2A9 /* mortyCrying.json */,
+				7B25719F2A81462000FFD2A9 /* teleport.json */,
+				7B2571A52A814A6000FFD2A9 /* rickNMortyHeaderAnimation.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		7B60F9B42A7A81690097EC66 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +123,7 @@
 				7B60F9D72A7A81BE0097EC66 /* Views */,
 				7B60F9D52A7A81B40097EC66 /* ViewModel */,
 				7B60F9D42A7A81AB0097EC66 /* Delegations */,
+				7B2571932A8141B100FFD2A9 /* Animations */,
 				7B60F9C92A7A816A0097EC66 /* Assets.xcassets */,
 				7B60F9CE2A7A816A0097EC66 /* Info.plist */,
 			);
@@ -232,6 +254,7 @@
 			name = RickNMorty;
 			packageProductDependencies = (
 				7BF181D12A7BFC0B00775B52 /* Kingfisher */,
+				7B25719B2A81422A00FFD2A9 /* Lottie */,
 			);
 			productName = RickNMorty;
 			productReference = 7B60F9BD2A7A81690097EC66 /* RickNMorty.app */;
@@ -263,6 +286,7 @@
 			mainGroup = 7B60F9B42A7A81690097EC66;
 			packageReferences = (
 				7BF181D02A7BFC0B00775B52 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				7B25719A2A81422A00FFD2A9 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 7B60F9BE2A7A81690097EC66 /* Products */;
 			projectDirPath = "";
@@ -282,7 +306,11 @@
 				7B60F9CA2A7A816A0097EC66 /* Assets.xcassets in Resources */,
 				7B60F9C82A7A81690097EC66 /* Main.storyboard in Resources */,
 				7BEE6DE42A7FE7F5004EAAC5 /* HeaderGenericView.xib in Resources */,
+				7B2571A02A81462000FFD2A9 /* teleport.json in Resources */,
+				7B2571982A8141C000FFD2A9 /* mortyTwerking.json in Resources */,
 				7B60F9F82A7A83A90097EC66 /* CharactersTableViewCell.xib in Resources */,
+				7B2571A62A814A6000FFD2A9 /* rickNMortyHeaderAnimation.json in Resources */,
+				7B2571972A8141C000FFD2A9 /* mortyCrying.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +560,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7B25719A2A81422A00FFD2A9 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		7BF181D02A7BFC0B00775B52 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -543,6 +579,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7B25719B2A81422A00FFD2A9 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B25719A2A81422A00FFD2A9 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		7BF181D12A7BFC0B00775B52 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7BF181D02A7BFC0B00775B52 /* XCRemoteSwiftPackageReference "Kingfisher" */;

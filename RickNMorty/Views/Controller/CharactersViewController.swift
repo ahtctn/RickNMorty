@@ -62,7 +62,7 @@ class CharactersViewController: UIViewController {
     
     private func setHeaderView() {
         self.headerView.headerText.text = "characters".capitalized
-        self.headerView.headerImage.setImage(with: Constants.headerImageUrl)
+        self.headerView.addLottieAnimation(animationName: Constants.HeaderAnimations.mortyCrying)
     }
     private func setTabbarImage() {
         tabBarItem = UITabBarItem(title: "", image: unselectedImage, selectedImage: selectedImage)
