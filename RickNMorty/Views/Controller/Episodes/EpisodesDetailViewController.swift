@@ -22,6 +22,8 @@ class EpisodesDetailViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setHeaderView()
+        observeEvent()
+        delegations()
         
     }
     
@@ -50,6 +52,28 @@ class EpisodesDetailViewController: UIViewController {
             nameLabel.text = episode.episode
             airDateLabel.text = episode.airDate
             print("Episode\(episode.episode)\nAirDate\(episode.airDate)\nID\(episode.id)\nCreated\(episode.created)\nUrl\(episode.url)\nCharacters\(episode.characters)\nName\(episode.name)")
+        }
+    }
+    
+    private func observeEvent() {
+        viewModel.getCharacters()
+        
+        viewModel.eventHandler = { [weak self] event in
+            
+            switch event {
+            case .loading:
+                print("data is loading")
+            case .stopLoading:
+                print("data stopped loading")
+            case .dataLoaded:
+                print("data loaded")
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            case .error(let error):
+                print(error?.localizedDescription as Any)
+            }
+            
         }
     }
 }
