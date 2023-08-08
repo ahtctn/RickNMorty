@@ -63,13 +63,24 @@ class NetworkManager {
         request(endpoint, completion: completion)
     }
     
-    func getEpisodes(completion: @escaping NetworkCompletion<CharactersModel>) {
-        let endpoint = Endpoint<CharactersModel>.getEpisodes
+    func getEpisodes(completion: @escaping NetworkCompletion<EpisodesModel>) {
+        let endpoint = Endpoint<EpisodesModel>.getEpisodes
         
         request(endpoint, completion: completion)
     }
     
-    func getOtherPages(url: String, completion: @escaping NetworkCompletion<CharactersModel>) {
+    func getOtherPagesEpisodes(url: String, completion: @escaping NetworkCompletion<EpisodesModel>) {
+        guard let url = URL(string: url.replacingOccurrences(of: Constants.baseURL, with: "")) else {
+            print("Get upper page url is wrong now")
+            completion(.failure(.invalidURL))
+            return
+        }
+        
+        let endpoint = Endpoint<EpisodesModel>.custom(url: url.absoluteString)
+        request(endpoint, completion: completion)
+    }
+    
+    func getOtherPagesCharacter(url: String, completion: @escaping NetworkCompletion<CharactersModel>) {
         guard let url = URL(string: url.replacingOccurrences(of: Constants.baseURL, with: "" )) else {
             print("Get upper page url is wrong now.")
             completion(.failure(.invalidURL))
@@ -79,5 +90,6 @@ class NetworkManager {
         let endpoint = Endpoint<CharactersModel>.custom(url: url.absoluteString)
         request(endpoint, completion: completion)
     }
+    
     
 }

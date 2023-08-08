@@ -1,15 +1,15 @@
 //
-//  CharactersViewModel.swift
+//  EpisodesViewModel.swift
 //  RickNMorty
 //
-//  Created by Ahmet Ali ÇETİN on 2.08.2023.
-// 
+//  Created by Ahmet Ali ÇETİN on 7.08.2023.
+//
 
 import Foundation
 
-class CharactersViewModel {
-    var characters: [ResultsModel] = []
-    var eventHandler:((_ event: Event) -> Void)?
+class EpisodesViewModel {
+    var episodes: [ResultEpisodesModel] = []
+    var eventHandler: ((_ event: Event) -> Void)?
     
     private var nextPageUrl: String?
     private var prevPageUrl: String?
@@ -17,16 +17,16 @@ class CharactersViewModel {
     private var isNextPageUrlWarningShown: Bool = false
     private var isPrevPageUrlWarningShown: Bool = false
     
-    func getCharacters() {
+    func getEpisodes() {
         self.eventHandler?(.loading)
-        NetworkManager.shared.getCharacters { results in
-            switch results {
-            case .success(let characters):
-                self.characters = characters.results
-                self.nextPageUrl = characters.info.next
+        NetworkManager.shared.getEpisodes { result in
+            switch result {
+            case .success(let episodes):
+                self.episodes = episodes.results
+                self.nextPageUrl = episodes.info.next
                 self.eventHandler?(.dataLoaded)
             case .failure(let error):
-                print("\(error.localizedDescription) Get Characters Error In CharactersViewModel class.")
+                print("\(error.localizedDescription) get episodes error in episodesViewModel class.")
             }
         }
     }
@@ -38,11 +38,11 @@ class CharactersViewModel {
         }
         
         self.eventHandler?(.loading)
-        NetworkManager.shared.getOtherPagesCharacter(url: nextPageUrl) { [weak self] result in
+        NetworkManager.shared.getOtherPagesEpisodes(url: nextPageUrl) { [weak self] result in
             switch result {
-            case .success(let characters):
-                self?.characters.append(contentsOf: characters.results)
-                self?.nextPageUrl = characters.info.next
+            case .success(let episodes):
+                self?.episodes.append(contentsOf: episodes.results)
+                self?.nextPageUrl = episodes.info.next
                 self?.eventHandler?(.dataLoaded)
             case .failure(let error):
                 print(error.localizedDescription)
@@ -58,14 +58,14 @@ class CharactersViewModel {
         }
         
         self.eventHandler?(.loading)
-        NetworkManager.shared.getOtherPagesCharacter(url: prevPageUrl) { [weak self] result in
+        NetworkManager.shared.getOtherPagesEpisodes(url: prevPageUrl) { [weak self] result in
             switch result {
-            case .success(let characters):
-                self?.characters.append(contentsOf: characters.results)
-                self?.prevPageUrl = characters.info.prev
+            case .success(let episodes):
+                self?.episodes.append(contentsOf: episodes.results)
+                self?.nextPageUrl = episodes.info.next
                 self?.eventHandler?(.dataLoaded)
             case .failure(let error):
-                print("\(error.localizedDescription) prev page error")
+                print(error.localizedDescription)
                 self?.eventHandler?(.error(error))
             }
         }
@@ -79,28 +79,27 @@ class CharactersViewModel {
         if nextPageUrl == nil {
             print("No next page url")
         }
+        
         if prevPageUrl == nil {
             print("No prev page url")
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
-            self?.isNextPageUrlWarningShown = false
-            self?.isPrevPageUrlWarningShown = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.isNextPageUrlWarningShown = false
+            self.isPrevPageUrlWarningShown = false
         }
     }
     
     func numberOfRows() -> Int {
-        return self.characters.count
+        return self.episodes.count
     }
     
-    func resultCell(at index: Int) -> ResultsModel {
-        return self.characters[index]
+    func resultCell(at index: Int) -> ResultEpisodesModel {
+        return self.episodes[index]
     }
-    
-    
 }
 
-extension CharactersViewModel {
+extension EpisodesViewModel {
     enum Event {
         case loading
         case stopLoading

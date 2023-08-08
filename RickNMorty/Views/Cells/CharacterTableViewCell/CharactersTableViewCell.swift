@@ -66,6 +66,11 @@ class CharactersTableViewCell: UITableViewCell {
             self.statusImageView.image = UIImage(systemName: "person.fill")
         }
         
+        self.makeArrow()
+        
+    }
+    
+    private func makeArrow() {
         let indicatorColor = UIColor(named: "greenColor")!
         let indicatorSize = CGSize(width: 30, height: 20)
         if let arrowImage = UIImage.rightArrowImage(with: indicatorColor, size: indicatorSize) {
@@ -73,7 +78,6 @@ class CharactersTableViewCell: UITableViewCell {
             indicatorImageView.tintColor = UIColor(named: "greenColor")
             self.accessoryView = indicatorImageView
         }
-        
     }
     
     

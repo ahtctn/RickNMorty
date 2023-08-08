@@ -1,28 +1,37 @@
 //
-//  CharactersViewController.swift
+//  EpisodesDetailViewController.swift
 //  RickNMorty
 //
-//  Created by Ahmet Ali ÇETİN on 2.08.2023.
+//  Created by Ahmet Ali ÇETİN on 7.08.2023.
 //
 
 import UIKit
 
-class CharactersViewController: UIViewController {
+class EpisodesDetailViewController: UIViewController {
     
+    @IBOutlet weak var episodeLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var airDateLabel: UILabel!
     @IBOutlet weak var headerView: HeaderGenericView!
     @IBOutlet weak var tableView: UITableView!
     private var viewModel = CharactersViewModel()
     
-    
-    let selectedImage = UIImage(named: "characters")
-    let unselectedImage = UIImage(named: "charactersUnselected")
+    var episodes: ResultEpisodesModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegations()
-        observeEvent()
+        setupUI()
         setHeaderView()
-        setTabbarImage()
+        
+    }
+    
+    private func setHeaderView() {
+        headerView.addLottieAnimation(animationName: Constants.HeaderAnimations.mortyTwerking)
+        
+        if let episode = episodes {
+            headerView.headerText.text = episode.episode.capitalized
+        }
+        
     }
     
     private func delegations() {
@@ -35,38 +44,17 @@ class CharactersViewController: UIViewController {
         }
     }
     
-    private func observeEvent() {
-        viewModel.getCharacters()
-        
-        viewModel.eventHandler = { [weak self] event in
-            
-            switch event {
-            case .loading:
-                print("data is loading")
-            case .stopLoading:
-                print("data stopped loading")
-            case .dataLoaded:
-                print("data loaded")
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
-            case .error(let error):
-                print(error?.localizedDescription as Any)
-            }
-            
+    private func setupUI() {
+        if let episode = episodes {
+            episodeLabel.text = episode.name
+            nameLabel.text = episode.episode
+            airDateLabel.text = episode.airDate
+            print("Episode\(episode.episode)\nAirDate\(episode.airDate)\nID\(episode.id)\nCreated\(episode.created)\nUrl\(episode.url)\nCharacters\(episode.characters)\nName\(episode.name)")
         }
-    }
-    
-    private func setHeaderView() {
-        self.headerView.headerText.text = "characters".capitalized
-        self.headerView.addLottieAnimation(animationName: Constants.HeaderAnimations.mortyCrying)
-    }
-    private func setTabbarImage() {
-        tabBarItem = UITabBarItem(title: "", image: unselectedImage, selectedImage: selectedImage)
     }
 }
 
-extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
+extension EpisodesDetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.numberOfRows()
     }
@@ -74,7 +62,7 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.viewModel.resultCell(at: indexPath.row)
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellId, for: indexPath) as? CharactersTableViewCell else {
-            print("tableviewcell error")
+            print("tableViewcell error")
             return UITableViewCell()
         }
         
