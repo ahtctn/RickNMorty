@@ -83,6 +83,13 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedCharacter = viewModel.resultCell(at: indexPath.row)
+        if let charactersDetailVC = storyboard?.instantiateViewController(withIdentifier: Constants.goToCharacterDetailFromEpisodesID) as? CharactersDetailViewController {
+            charactersDetailVC.character = selectedCharacter
+            navigationController?.pushViewController(charactersDetailVC, animated: true)
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

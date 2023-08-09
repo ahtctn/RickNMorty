@@ -113,9 +113,19 @@ extension EpisodesDetailViewController: UICollectionViewDataSource, UICollection
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let gridLayout = collectionViewLayout as! UICollectionViewFlowLayout
-        let widthPerItem = collectionView.frame.width / 2 - gridLayout.minimumInteritemSpacing
-        return CGSize(width:widthPerItem, height:300)
+        let widthPerItem = 128
+        return CGSize(width: widthPerItem, height: 128)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let selectedCharacter = episodeDetailVM.resultCell(at: indexPath.row)
+        if let charactersDetailVC = storyboard?.instantiateViewController(withIdentifier: Constants.goToCharacterDetailFromEpisodesID) as? CharactersDetailViewController {
+            charactersDetailVC.character = selectedCharacter
+            navigationController?.pushViewController(charactersDetailVC, animated: true)
+        }
+        
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
     
     

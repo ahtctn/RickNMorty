@@ -14,6 +14,7 @@ enum Constants {
     //static let headerImageUrl: String = "https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-non-toxic-rick-sanchez-18.png"
     static let headerImageUrl: String = "file:///Users/ahmetalicetin/Desktop/rmheader%3F.png"
     static let collectionViewCellID: String = "collectionViewCellID"
+    static let goToCharacterDetailFromEpisodesID: String = "goToCharactersDetailViewController"
     
     enum HeaderAnimations {
         static let mortyTwerking: String = "mortyTwerking"
