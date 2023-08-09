@@ -8,7 +8,7 @@
 import Foundation
 
 struct EpisodesModel: Codable {
-    let info: InfoEpisodesModel
+    let info: InfoEpisodesModel?
     let results: [ResultEpisodesModel]
 }
 

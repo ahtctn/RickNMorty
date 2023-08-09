@@ -42,6 +42,7 @@ class NetworkManager {
             } catch let DecodingError.keyNotFound(key, context) {
                 print("Key '\(key)' not found:", context.debugDescription)
                 print("codingPath:", context.codingPath)
+                
             } catch let DecodingError.valueNotFound(value, context) {
                 print("Value '\(value)' not found:", context.debugDescription)
                 print("codingPath:", context.codingPath)
@@ -69,14 +70,14 @@ class NetworkManager {
         request(endpoint, completion: completion)
     }
     
-    func getCharacterFromEpisode(url: String, completion: @escaping NetworkCompletion<CharactersModel>) {
+    func getCharacterFromEpisode(url: String, completion: @escaping NetworkCompletion<ResultsModel>) {
         guard let url = URL(string: url.replacingOccurrences(of: Constants.baseURL, with: "")) else {
             print("Get character from episode url is wrong now")
             completion(.failure(.invalidURL))
             return
         }
         
-        let endpoint = Endpoint<CharactersModel>.custom(url: url.absoluteString)
+        let endpoint = Endpoint<ResultsModel>.custom(url: url.absoluteString)
         request(endpoint, completion: completion)
     }
     

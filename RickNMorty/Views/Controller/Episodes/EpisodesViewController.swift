@@ -59,7 +59,7 @@ class EpisodesViewController: UIViewController {
                     self?.tableView.reloadData()
                 }
             case .error(let error):
-                print("error in observe event function in episodesviewcontroller \(error?.localizedDescription)")
+                print("error in observe event function in episodesviewcontroller \(String(describing: error?.localizedDescription))")
             }
         }
     }

@@ -13,8 +13,11 @@ class EpisodesDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var airDateLabel: UILabel!
     @IBOutlet weak var headerView: HeaderGenericView!
-    @IBOutlet weak var tableView: UITableView!
-    private var viewModel = EpisodesViewModel()
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    private var episodeDetailVM = EpisodesDetailViewModel()
+    private var episodeVM = EpisodesViewModel()
+    
     
     var episodes: ResultEpisodesModel?
     
@@ -29,7 +32,6 @@ class EpisodesDetailViewController: UIViewController {
     
     private func setHeaderView() {
         headerView.addLottieAnimation(animationName: Constants.HeaderAnimations.mortyTwerking)
-        
         if let episode = episodes {
             headerView.headerText.text = episode.episode.capitalized
         }
@@ -38,12 +40,11 @@ class EpisodesDetailViewController: UIViewController {
     
     private func delegations() {
         DispatchQueue.main.async {
-            self.tableView.register(UINib(nibName: "CharactersTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.cellId)
-            self.tableView.dataSource = self
-            self.tableView.delegate = self
-            self.tableView.rowHeight = UITableView.automaticDimension
-            self.tableView.estimatedRowHeight = 100 // Örneğin, ortalama bir hücre yüksekliği
+            self.collectionView.register(UINib(nibName: "EpisodeCharactersCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.collectionViewCellID)
+            self.collectionView.dataSource = self
+            self.collectionView.delegate = self
         }
+        
     }
     
     private func setupUI() {
@@ -51,17 +52,23 @@ class EpisodesDetailViewController: UIViewController {
             episodeLabel.text = episode.name
             nameLabel.text = episode.episode
             airDateLabel.text = episode.airDate
-            print("Episode\(episode.episode)\nAirDate\(episode.airDate)\nID\(episode.id)\nCreated\(episode.created)\nUrl\(episode.url)\nCharacters\(episode.characters)\nName\(episode.name)")
         }
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        self.collectionView.setCollectionViewLayout(layout, animated: true)
+        
+        navigationController?.navigationBar.tintColor = .white
     }
     
     private func observeEvent() {
         
         guard let episode = episodes else { return }
         
-        viewModel.getCharactersInEpisode(with: episode.characters)
+        episodeDetailVM.getCharactersInEpisode(with: episode.characters)
         
-        viewModel.eventHandler = { [weak self] event in
+        episodeDetailVM.eventHandler = { event in
             
             switch event {
             case .loading:
@@ -71,7 +78,8 @@ class EpisodesDetailViewController: UIViewController {
             case .dataLoaded:
                 print("data loaded")
                 DispatchQueue.main.async {
-                    self?.tableView.reloadData()
+                    //self?.tableView.reloadData()
+                    self.collectionView.reloadData()
                 }
             case .error(let error):
                 print(error?.localizedDescription as Any)
@@ -81,41 +89,34 @@ class EpisodesDetailViewController: UIViewController {
     }
 }
 
-extension EpisodesDetailViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.numberOfRows()
+extension EpisodesDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return episodeDetailVM.numberOfRows()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.viewModel.resultCell(at: indexPath.row)
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellId, for: indexPath) as? EpisodesTableViewCell else {
-            print("tableViewcell error")
-            return UITableViewCell()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = self.episodeDetailVM.resultCell(at: indexPath.row)
+        guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.collectionViewCellID, for: indexPath) as? EpisodeCharactersCollectionViewCell else {
+            return UICollectionViewCell()
         }
         
-        cell.configure(with: item)
-        return cell
+        item.configure(with: cell)
+        return item
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        self.collectionView.deselectItem(at: indexPath, animated: true)
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let scrollViewHeight = scrollView.frame.size.height
-        let scrollContentSizeHeight = scrollView.contentSize.height
-        let scrollOffset = scrollView.contentOffset.y
-        
-        if scrollOffset <= 100 {
-            self.viewModel.getPrevPage()
-        }
-        
-        else if scrollOffset + scrollViewHeight >= scrollContentSizeHeight - 100 {
-            self.viewModel.getNextPage()
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 1.0, left: 1.0, bottom: 1.0, right: 1.0)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let gridLayout = collectionViewLayout as! UICollectionViewFlowLayout
+        let widthPerItem = collectionView.frame.width / 2 - gridLayout.minimumInteritemSpacing
+        return CGSize(width:widthPerItem, height:300)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
+    
 }

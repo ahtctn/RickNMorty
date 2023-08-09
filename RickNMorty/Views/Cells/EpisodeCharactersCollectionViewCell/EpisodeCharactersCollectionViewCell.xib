@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="EpisodeCharactersCollectionViewCell" customModule="RickNMorty" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FuQ-K0-TSy">
+                        <rect key="frame" x="5" y="10" width="118" height="86"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kou-Dv-htg">
+                        <rect key="frame" x="5" y="101" width="118" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="6dk-i1-fGR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="18"/>
+                        <color key="textColor" name="orangeColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" name="lightGreenColor"/>
+            <constraints>
+                <constraint firstItem="FuQ-K0-TSy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="2Os-3o-6VB"/>
+                <constraint firstAttribute="trailing" secondItem="FuQ-K0-TSy" secondAttribute="trailing" constant="5" id="8v5-xZ-izt"/>
+                <constraint firstAttribute="bottom" secondItem="kou-Dv-htg" secondAttribute="bottom" constant="5" id="N6M-81-d22"/>
+                <constraint firstItem="kou-Dv-htg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Zo6-ah-gJH"/>
+                <constraint firstItem="kou-Dv-htg" firstAttribute="centerX" secondItem="FuQ-K0-TSy" secondAttribute="centerX" id="c0p-ju-p8B"/>
+                <constraint firstItem="kou-Dv-htg" firstAttribute="top" secondItem="FuQ-K0-TSy" secondAttribute="bottom" constant="5" id="lhD-9H-EbF"/>
+                <constraint firstItem="FuQ-K0-TSy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="m09-gc-oNB"/>
+                <constraint firstAttribute="trailing" secondItem="kou-Dv-htg" secondAttribute="trailing" constant="5" id="tkp-0z-kFo"/>
+            </constraints>
+            <connections>
+                <outlet property="characterImage" destination="FuQ-K0-TSy" id="0sG-c0-aSn"/>
+                <outlet property="characterName" destination="kou-Dv-htg" id="OSp-gL-Y4O"/>
+            </connections>
+            <point key="canvasLocation" x="80" y="-11.374407582938389"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="lightGreenColor">
+            <color red="0.70820536491183594" green="0.8508904230613894" blue="0.81073221017006736" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="orangeColor">
+            <color red="1" green="0.3411764705882353" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

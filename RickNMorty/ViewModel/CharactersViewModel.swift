@@ -23,7 +23,7 @@ class CharactersViewModel {
             switch results {
             case .success(let characters):
                 self.characters = characters.results
-                self.nextPageUrl = characters.info.next
+                self.nextPageUrl = characters.info?.next
                 self.eventHandler?(.dataLoaded)
             case .failure(let error):
                 print("\(error.localizedDescription) Get Characters Error In CharactersViewModel class.")
@@ -45,7 +45,7 @@ class CharactersViewModel {
             switch result {
             case .success(let characters):
                 self?.characters.append(contentsOf: characters.results)
-                self?.nextPageUrl = characters.info.next
+                self?.nextPageUrl = characters.info?.next
                 self?.eventHandler?(.dataLoaded)
             case .failure(let error):
                 print(error.localizedDescription)
@@ -65,7 +65,7 @@ class CharactersViewModel {
             switch result {
             case .success(let characters):
                 self?.characters.append(contentsOf: characters.results)
-                self?.prevPageUrl = characters.info.prev
+                self?.prevPageUrl = characters.info?.prev
                 self?.eventHandler?(.dataLoaded)
             case .failure(let error):
                 print("\(error.localizedDescription) prev page error")
