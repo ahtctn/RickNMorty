@@ -9,6 +9,7 @@ import Foundation
 
 class EpisodesViewModel {
     var episodes: [ResultEpisodesModel] = []
+    var characters: [CharactersModel] = []
     var eventHandler: ((_ event: Event) -> Void)?
     
     private var nextPageUrl: String?
@@ -16,6 +17,8 @@ class EpisodesViewModel {
     
     private var isNextPageUrlWarningShown: Bool = false
     private var isPrevPageUrlWarningShown: Bool = false
+    
+    private var episodeCharacterUrls: [String] = [] // Değişiklik: Birden fazla karakter URL'sini saklamak için dizi
     
     func getEpisodes() {
         self.eventHandler?(.loading)
@@ -30,6 +33,38 @@ class EpisodesViewModel {
             }
         }
     }
+    
+    func getCharactersInEpisode(with urls: [String]) {
+        print("Charcter urls xoxo\(urls)")
+        self.eventHandler?(.loading)
+        
+        var characters: [CharactersModel] = [] // Boş bir dizi oluştur
+        self.episodeCharacterUrls = urls // Değişiklik: URL'leri sakla
+        
+        let dispatchGroup = DispatchGroup() // DispatchGroup kullanarak her karakter için ayrı ayrı requestleri bekleteceğiz
+        
+        for characterUrl in urls { // ResultEpisodesModel içindeki characters dizisini dön
+            dispatchGroup.enter() // DispatchGroup'a giriş yap
+            
+            NetworkManager.shared.getCharacterFromEpisode(url: characterUrl) { [weak self] result in
+                switch result {
+                case .success(let character):
+                    characters.append(character) // Karakteri diziye ekle
+                case .failure(let error):
+                    print("\(error.localizedDescription) Get Characters Error In EpisodesViewModel class.")
+                }
+                
+                dispatchGroup.leave() // DispatchGroup'tan çıkış yap
+            }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            // Tüm requestler tamamlandığında bu blok çalışacak
+            self.characters = characters
+            self.eventHandler?(.dataLoaded)
+        }
+    }
+    
     
     func getNextPage() {
         guard let nextPageUrl = self.nextPageUrl else {
@@ -66,6 +101,7 @@ class EpisodesViewModel {
                 self?.eventHandler?(.dataLoaded)
             case .failure(let error):
                 print(error.localizedDescription)
+                print("error'a giriyor'")
                 self?.eventHandler?(.error(error))
             }
         }

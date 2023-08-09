@@ -31,6 +31,9 @@ class CharactersViewModel {
         }
     }
     
+    
+    
+    
     func getNextPage() {
         guard let nextPageUrl = self.nextPageUrl else {
             showPrevNextPageUrlWarning()

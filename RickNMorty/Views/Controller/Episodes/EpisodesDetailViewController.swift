@@ -14,7 +14,7 @@ class EpisodesDetailViewController: UIViewController {
     @IBOutlet weak var airDateLabel: UILabel!
     @IBOutlet weak var headerView: HeaderGenericView!
     @IBOutlet weak var tableView: UITableView!
-    private var viewModel = CharactersViewModel()
+    private var viewModel = EpisodesViewModel()
     
     var episodes: ResultEpisodesModel?
     
@@ -56,7 +56,10 @@ class EpisodesDetailViewController: UIViewController {
     }
     
     private func observeEvent() {
-        viewModel.getCharacters()
+        
+        guard let episode = episodes else { return }
+        
+        viewModel.getCharactersInEpisode(with: episode.characters)
         
         viewModel.eventHandler = { [weak self] event in
             
@@ -85,7 +88,7 @@ extension EpisodesDetailViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.viewModel.resultCell(at: indexPath.row)
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellId, for: indexPath) as? CharactersTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellId, for: indexPath) as? EpisodesTableViewCell else {
             print("tableViewcell error")
             return UITableViewCell()
         }
