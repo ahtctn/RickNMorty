@@ -33,7 +33,6 @@ class EpisodeCharactersCollectionViewCell: UICollectionViewCell {
     
     func configure(with item: ResultsModel) {
         self.characterImage.setImage(with: item.image ?? Constants.headerImageUrl)
-        //self.characterImage.image = UIImage(systemName: "person.fill")
         
         self.characterName.text = item.name
         setUI()

@@ -27,9 +27,8 @@ class EpisodesDetailViewModel {
                 switch result {
                 case .success(let character):
                     characters.append(character) // Karakteri diziye ekle
-                    print(character)
                 case .failure(let error):
-                    print("\(error.localizedDescription) Get Characters Error In EpisodesViewModel class.")
+                    print("\(error.localizedDescription) Get Characters Error In EpisodesDetailViewModel class.")
                 }
                 
                 dispatchGroup.leave() // DispatchGroup'tan çıkış yap

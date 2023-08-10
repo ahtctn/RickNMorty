@@ -36,7 +36,7 @@
             <color key="backgroundColor" name="greenColor"/>
             <constraints>
                 <constraint firstItem="iYS-pS-wus" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="66U-Y4-LRU"/>
-                <constraint firstItem="iYS-pS-wus" firstAttribute="leading" secondItem="VYk-HR-jnj" secondAttribute="trailing" constant="84.333333333333329" id="9jc-xO-Yje"/>
+                <constraint firstItem="iYS-pS-wus" firstAttribute="leading" secondItem="VYk-HR-jnj" secondAttribute="trailing" constant="84.333333333333329" id="7mx-vE-gv7"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="VYk-HR-jnj" secondAttribute="bottom" constant="5" id="Dho-wt-ROn"/>
                 <constraint firstItem="VYk-HR-jnj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="EV0-uR-cjw"/>
                 <constraint firstItem="iYS-pS-wus" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="60" id="Pm9-rc-Ghz"/>

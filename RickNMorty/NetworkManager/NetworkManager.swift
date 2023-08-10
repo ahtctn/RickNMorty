@@ -81,6 +81,17 @@ class NetworkManager {
         request(endpoint, completion: completion)
     }
     
+    func getEpisodesFromCharacter(url: String, completion: @escaping NetworkCompletion<ResultEpisodesModel>) {
+        guard let url = URL(string: url.replacingOccurrences(of: Constants.baseURL, with: "")) else {
+            print("Get character from episode url is wrong now.")
+            completion(.failure(.invalidURL))
+            return
+        }
+        
+        let endpoint = Endpoint<ResultEpisodesModel>.custom(url: url.absoluteString)
+        request(endpoint, completion: completion)
+    }
+    
     func getOtherPagesEpisodes(url: String, completion: @escaping NetworkCompletion<EpisodesModel>) {
         guard let url = URL(string: url.replacingOccurrences(of: Constants.baseURL, with: "")) else {
             print("Get upper page url is wrong now")

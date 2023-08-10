@@ -40,7 +40,7 @@ class EpisodesDetailViewController: UIViewController {
     
     private func delegations() {
         DispatchQueue.main.async {
-            self.collectionView.register(UINib(nibName: "EpisodeCharactersCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.collectionViewCellID)
+            self.collectionView.register(UINib(nibName: "EpisodeCharactersCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.collectionViewCellIDCharacters)
             self.collectionView.dataSource = self
             self.collectionView.delegate = self
         }
@@ -53,6 +53,7 @@ class EpisodesDetailViewController: UIViewController {
             nameLabel.text = episode.episode
             airDateLabel.text = episode.airDate
         }
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 10
@@ -96,7 +97,7 @@ extension EpisodesDetailViewController: UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.episodeDetailVM.resultCell(at: indexPath.row)
-        guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.collectionViewCellID, for: indexPath) as? EpisodeCharactersCollectionViewCell else {
+        guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.collectionViewCellIDCharacters, for: indexPath) as? EpisodeCharactersCollectionViewCell else {
             return UICollectionViewCell()
         }
         
@@ -111,7 +112,7 @@ extension EpisodesDetailViewController: UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 1.0, left: 1.0, bottom: 1.0, right: 1.0)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let widthPerItem = 128
         return CGSize(width: widthPerItem, height: 128)

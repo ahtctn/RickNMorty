@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CharacterEpisodesCollectionViewCell" customModule="RickNMorty" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSF-KU-uKk">
+                        <rect key="frame" x="5" y="5" width="118" height="32"/>
+                        <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="26"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EvX-Cs-555" customClass="ch">
+                        <rect key="frame" x="5" y="42" width="118" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="3oL-ss-MYM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="20"/>
+                        <color key="textColor" name="yellowColor"/>
+                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" name="greenColor"/>
+            <constraints>
+                <constraint firstItem="EvX-Cs-555" firstAttribute="top" secondItem="bSF-KU-uKk" secondAttribute="bottom" constant="5" id="4v0-rv-Tcl"/>
+                <constraint firstItem="bSF-KU-uKk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="Rqd-x9-FYk"/>
+                <constraint firstAttribute="trailing" secondItem="bSF-KU-uKk" secondAttribute="trailing" constant="5" id="aMM-0q-zaj"/>
+                <constraint firstItem="bSF-KU-uKk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="fHh-bx-FAJ"/>
+                <constraint firstAttribute="trailing" secondItem="EvX-Cs-555" secondAttribute="trailing" constant="5" id="j5b-2Y-0HQ"/>
+                <constraint firstItem="EvX-Cs-555" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="u1Q-0l-6Eb"/>
+            </constraints>
+            <connections>
+                <outlet property="episodeNameLabel" destination="EvX-Cs-555" id="2n6-AB-KUJ"/>
+                <outlet property="episodeNumberLabel" destination="bSF-KU-uKk" id="97t-3a-bNG"/>
+            </connections>
+            <point key="canvasLocation" x="130.76923076923077" y="-11.374407582938389"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="greenColor">
+            <color red="0.51764705882352946" green="0.61176470588235299" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="yellowColor">
+            <color red="0.96862745098039216" green="0.86274509803921573" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
