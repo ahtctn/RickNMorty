@@ -155,22 +155,34 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="82.666666666666671"/>
                                 <color key="backgroundColor" name="greenColor"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vE4-M6-9Cw">
-                                <rect key="frame" x="0.0" y="82.666666666666686" width="390" height="678.33333333333326"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="SEARCH" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jRF-ft-qMu">
+                                <rect key="frame" x="0.0" y="91" width="390" height="28.666666666666671"/>
+                                <color key="backgroundColor" red="0.96611279250000004" green="0.94077213930000003" blue="0.70871731319999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="f8j-LS-xNX">
+                                <rect key="frame" x="0.0" y="119.66666666666669" width="390" height="641.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iPf-cC-mKM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="iPf-cC-mKM" firstAttribute="bottom" secondItem="vE4-M6-9Cw" secondAttribute="bottom" id="5ny-RR-Udx"/>
+                            <constraint firstItem="jRF-ft-qMu" firstAttribute="top" secondItem="pHr-qu-WNy" secondAttribute="topMargin" id="4bH-88-QUd"/>
+                            <constraint firstItem="jRF-ft-qMu" firstAttribute="leading" secondItem="N10-eD-lts" secondAttribute="leading" id="75J-cL-ncS"/>
+                            <constraint firstItem="jRF-ft-qMu" firstAttribute="leading" secondItem="iPf-cC-mKM" secondAttribute="leading" id="7Rp-pO-62z"/>
                             <constraint firstItem="N10-eD-lts" firstAttribute="leading" secondItem="iPf-cC-mKM" secondAttribute="leading" id="8bB-d1-unp"/>
-                            <constraint firstItem="iPf-cC-mKM" firstAttribute="trailing" secondItem="vE4-M6-9Cw" secondAttribute="trailing" id="D47-50-dwN"/>
+                            <constraint firstItem="jRF-ft-qMu" firstAttribute="trailing" secondItem="N10-eD-lts" secondAttribute="trailing" id="8jQ-VL-HM5"/>
+                            <constraint firstItem="f8j-LS-xNX" firstAttribute="top" secondItem="jRF-ft-qMu" secondAttribute="bottom" id="Ssm-gi-Rfw"/>
                             <constraint firstItem="N10-eD-lts" firstAttribute="top" secondItem="pHr-qu-WNy" secondAttribute="top" id="Tjg-S2-SBV"/>
-                            <constraint firstItem="vE4-M6-9Cw" firstAttribute="top" secondItem="N10-eD-lts" secondAttribute="bottom" id="gE6-Yx-oxe"/>
+                            <constraint firstItem="jRF-ft-qMu" firstAttribute="top" secondItem="iPf-cC-mKM" secondAttribute="top" id="YsV-38-BKV"/>
+                            <constraint firstItem="iPf-cC-mKM" firstAttribute="bottom" secondItem="f8j-LS-xNX" secondAttribute="bottom" id="ad6-7I-xS4"/>
+                            <constraint firstItem="iPf-cC-mKM" firstAttribute="trailing" secondItem="f8j-LS-xNX" secondAttribute="trailing" id="dQm-r2-2tt"/>
+                            <constraint firstItem="jRF-ft-qMu" firstAttribute="trailing" secondItem="iPf-cC-mKM" secondAttribute="trailing" id="pHY-Zx-6aA"/>
                             <constraint firstItem="N10-eD-lts" firstAttribute="trailing" secondItem="iPf-cC-mKM" secondAttribute="trailing" id="tQH-Tb-la4"/>
+                            <constraint firstItem="f8j-LS-xNX" firstAttribute="leading" secondItem="iPf-cC-mKM" secondAttribute="leading" id="va6-3i-v0T"/>
                             <constraint firstItem="iPf-cC-mKM" firstAttribute="bottom" secondItem="N10-eD-lts" secondAttribute="bottom" constant="678.33333333333337" id="zJv-GL-rXz"/>
-                            <constraint firstItem="vE4-M6-9Cw" firstAttribute="leading" secondItem="iPf-cC-mKM" secondAttribute="leading" id="zx0-XC-qWa"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="charactersUnselected" id="Uee-9l-mJG">
@@ -178,12 +190,13 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="headerView" destination="N10-eD-lts" id="w73-fF-hW0"/>
-                        <outlet property="tableView" destination="vE4-M6-9Cw" id="ibY-J3-cZv"/>
+                        <outlet property="searchTextField" destination="jRF-ft-qMu" id="GqI-Xm-4XQ"/>
+                        <outlet property="tableView" destination="f8j-LS-xNX" id="T7P-l6-1IK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geG-tI-9bF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="-17"/>
+            <point key="canvasLocation" x="887.69230769230762" y="-17.061611374407583"/>
         </scene>
         <!--Characters Detail View Controller-->
         <scene sceneID="dtX-N8-FNJ">

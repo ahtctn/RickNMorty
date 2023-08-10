@@ -9,6 +9,8 @@ import Foundation
 
 class CharactersViewModel {
     var characters: [ResultsModel] = []
+    var filteredCharacters: [ResultsModel] = []
+    
     var eventHandler:((_ event: Event) -> Void)?
     
     private var nextPageUrl: String?
@@ -30,9 +32,6 @@ class CharactersViewModel {
             }
         }
     }
-    
-    
-    
     
     func getNextPage() {
         guard let nextPageUrl = self.nextPageUrl else {
@@ -93,13 +92,24 @@ class CharactersViewModel {
     }
     
     func numberOfRows() -> Int {
-        return self.characters.count
+        if !filteredCharacters.isEmpty {
+            return self.filteredCharacters.count
+        } else {
+            return self.characters.count
+        }
     }
     
     func resultCell(at index: Int) -> ResultsModel {
-        return self.characters[index]
+        if !filteredCharacters.isEmpty {
+            return filteredCharacters[index]
+        } else {
+            return self.characters[index]
+        }
     }
     
+    func searchCharacters(with query: String) {
+        filteredCharacters = characters.filter { $0.name.lowercased().contains(query.lowercased()) }
+    }
     
 }
 
