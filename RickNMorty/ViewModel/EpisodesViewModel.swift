@@ -9,6 +9,8 @@ import Foundation
 
 class EpisodesViewModel {
     var episodes: [ResultEpisodesModel] = []
+    var filteredEpisodes: [ResultEpisodesModel] = []
+    
     var eventHandler: ((_ event: Event) -> Void)?
     
     private var nextPageUrl: String?
@@ -98,6 +100,12 @@ class EpisodesViewModel {
     
     func resultCell(at index: Int) -> ResultEpisodesModel {
         return self.episodes[index]
+    }
+    
+    func searchEpisodes(with query: String) {
+        filteredEpisodes = episodes.filter {
+            $0.episode.lowercased().contains(query.lowercased())
+        }
     }
 }
 

@@ -7,48 +7,46 @@
 
 import UIKit
 
-class CharactersViewController: UIViewController {
+class CharactersViewController: UIViewController, UISearchBarDelegate {
     
-    @IBOutlet weak var headerView: HeaderGenericView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     
     private var viewModel = CharactersViewModel()
     
-    
-    
     private var isFiltering: Bool {
         return !searchTextField.text!.isEmpty
     }
     
-    
+    let searchBar = UISearchBar()
     
     let selectedImage = UIImage(named: "characters")
     let unselectedImage = UIImage(named: "charactersUnselected")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        headerView.isHidden = false
         delegations()
         observeEvent()
-        setHeaderView()
         setTabbarImage()
+        tabbarDelegations()
+    }
+    
+    private func tabbarDelegations() {
+        self.tabBarController?.navigationItem.title = "Episodes"
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.backgroundColor = UIColor(named: "greenColor")
+        let attirbutes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = attirbutes
     }
     
     private func delegations() {
-        
-        
-        
-        DispatchQueue.main.async {
-            self.searchTextField.delegate = self
-            self.searchTextField.addTarget(self, action: #selector(self.searchTextFieldDidChange(_:)), for: .editingChanged)
-            
-            self.tableView.register(UINib(nibName: "CharactersTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.cellId)
-            self.tableView.dataSource = self
-            self.tableView.delegate = self
-            self.tableView.rowHeight = UITableView.automaticDimension
-            self.tableView.estimatedRowHeight = 100 // Örneğin, ortalama bir hücre yüksekliği
-        }
+        //searchTextField.delegate = self
+        searchTextField.addTarget(self, action: #selector(searchTextFieldDidChange(_:)), for: .editingChanged)
+        tableView.register(UINib(nibName: "CharactersTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.cellId)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100 // Örneğin, ortalama bir hücre yüksekliği
     }
     
     private func observeEvent() {
@@ -69,28 +67,30 @@ class CharactersViewController: UIViewController {
             case .error(let error):
                 print(error?.localizedDescription as Any)
             }
-            
         }
-    }
-    
-    private func setHeaderView() {
-        self.headerView.headerText.text = "characters".capitalized
-        self.headerView.addLottieAnimation(animationName: Constants.HeaderAnimations.mortyCrying)
     }
     
     private func setTabbarImage() {
         tabBarItem = UITabBarItem(title: "", image: unselectedImage, selectedImage: selectedImage)
     }
     
-    @IBAction func searchTextChanged(_ sender: UITextField) {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+    @objc private func searchTextFieldDidChange(_ textField: UITextField) {
+        if let textToEnter = textField.text {
+            if textToEnter.isEmpty || textToEnter.count < 3 {
+                DispatchQueue.main.async {
+                    self.viewModel.getCharacters()
+                    self.tableView.reloadData()
+                }
+            }
+            else {
+                DispatchQueue.main.async {
+                    self.viewModel.searchCharacters(with: textToEnter)
+                    self.tableView.reloadData()
+                }
+            }
         }
     }
-    @objc private func searchTextFieldDidChange(_ textField: UITextField) {
-        tableView.reloadData()
-    }
-    
+
 }
 
 extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
@@ -128,6 +128,7 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             selectedCharacter = viewModel.resultCell(at: indexPath.row)
         }
+        
         if let charactersDetailVC = storyboard?.instantiateViewController(withIdentifier: Constants.goToCharacterDetailFromEpisodesID) as? CharactersDetailViewController {
             charactersDetailVC.character = selectedCharacter
             navigationController?.pushViewController(charactersDetailVC, animated: true)
@@ -169,33 +170,3 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension CharactersViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-            // Burada arama işlemlerini yapar
-            viewModel.searchCharacters(with: searchText)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        } else {
-            // Arama metni boş ise, tüm karakterleri göster
-            viewModel.getCharacters()
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
-}
-
-extension CharactersViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == searchTextField {
-            // Aramayı üçüncü karakterden sonra yap
-            if textField.text!.count >= 3 {
-                let searchString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-                viewModel.searchCharacters(with: searchString)
-            }
-        }
-        return true
-    }
-}

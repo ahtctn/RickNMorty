@@ -21,8 +21,6 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headerView.headerText.text = "about me".capitalized
-        headerView.addLottieAnimation(animationName: Constants.HeaderAnimations.rickNMortyHeaderAnimation)
         tabBarItem = UITabBarItem(title: "", image: unselectedImage, selectedImage: selectedImage)
     }
     

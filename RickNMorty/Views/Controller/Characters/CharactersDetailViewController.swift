@@ -9,7 +9,6 @@ import UIKit
 
 class CharactersDetailViewController: UIViewController {
     
-    @IBOutlet weak var headerView: HeaderGenericView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var characterImage: UIImageView!
@@ -30,15 +29,10 @@ class CharactersDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setHeaderView()
+        
         configureUI()
         delegations()
         observeEvent()
-    }
-    
-    private func setHeaderView() {
-        self.headerView.headerText.text = "character".capitalized
-        self.headerView.addLottieAnimation(animationName: Constants.HeaderAnimations.mortyCrying)
     }
     
     private func delegations() {

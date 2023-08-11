@@ -7,27 +7,41 @@
 
 import UIKit
 
-class EpisodesViewController: UIViewController {
+class EpisodesViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var headerView: HeaderGenericView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchTextField: UITextField!
     
-    let viewModel = EpisodesViewModel()
+    private let viewModel = EpisodesViewModel()
+    
+    private var isFiltering: Bool {
+        return !searchTextField.text!.isEmpty
+    }
     
     let selectedImage = UIImage(named: "tv")
     let unselectedImage = UIImage(named: "tvUnselected")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         delegations()
         observeEvent()
         setTabbarImage()
-        setHeaderView()
+        tabbarDelegations()
+    }
+    
+    private func tabbarDelegations() {
+        self.tabBarController?.navigationItem.title = "Episodes"
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.backgroundColor = UIColor(named: "greenColor")
+        let attirbutes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = attirbutes
     }
     
     private func delegations() {
         DispatchQueue.main.async {
+            self.searchTextField.delegate = self
+            self.searchTextField.addTarget(self, action: #selector(self.searchTextFieldDidChange(_:)), for: .editingChanged)
+            
             self.tableView.register(UINib(nibName: "EpisodesTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.cellId)
             self.tableView.dataSource = self
             self.tableView.delegate = self
@@ -36,13 +50,12 @@ class EpisodesViewController: UIViewController {
         }
     }
     
-    private func setTabbarImage() {
-        tabBarItem = UITabBarItem(title: "", image: unselectedImage, selectedImage: selectedImage)
+    @objc private func searchTextFieldDidChange(_ textField: UITextField) {
+        self.tableView.reloadData()
     }
     
-    private func setHeaderView() {
-        headerView.addLottieAnimation(animationName: Constants.HeaderAnimations.mortyTwerking)
-        headerView.headerText.text = "episodes".capitalized
+    private func setTabbarImage() {
+        tabBarItem = UITabBarItem(title: "", image: unselectedImage, selectedImage: selectedImage)
     }
     
     private func observeEvent() {
@@ -63,16 +76,28 @@ class EpisodesViewController: UIViewController {
             }
         }
     }
-    
+
 }
 
 extension EpisodesViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.numberOfRows()
+        if isFiltering {
+            return self.viewModel.filteredEpisodes.count
+        } else {
+            return self.viewModel.numberOfRows()
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.viewModel.resultCell(at: indexPath.row)
+        var item: ResultEpisodesModel
+        
+        if isFiltering {
+            item = viewModel.filteredEpisodes[indexPath.row]
+        } else {
+            item = self.viewModel.resultCell(at: indexPath.row)
+        }
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellId, for: indexPath) as? EpisodesTableViewCell else {
             print("tableviewcell error")
             return UITableViewCell()
@@ -83,6 +108,18 @@ extension EpisodesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedEpisode: ResultEpisodesModel
+        if isFiltering {
+            selectedEpisode = viewModel.filteredEpisodes[indexPath.row]
+        } else {
+            selectedEpisode = viewModel.resultCell(at: indexPath.row)
+        }
+        performSegue(withIdentifier: Constants.cellId, sender: selectedEpisode)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollViewHeight = scrollView.frame.size.height
         let scrollContentSizeHeight = scrollView.contentSize.height
@@ -94,17 +131,26 @@ extension EpisodesViewController: UITableViewDataSource, UITableViewDelegate {
         else if scrollOffset + scrollViewHeight >= scrollContentSizeHeight - 100 {
             self.viewModel.getNextPage()
         }
+        
+        if scrollOffset > 0 {
+            if searchTextField.frame.origin.y == 0 {
+                UIView.animate(withDuration: 0.3) {
+                    self.searchTextField.frame.origin.y = -self.searchTextField.frame.height
+                }
+            }
+        } else {
+            if searchTextField.frame.origin.y < 0 {
+                UIView.animate(withDuration: 0.3) {
+                    self.searchTextField.frame.origin.y = 0
+                }
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let selectedEpisode = viewModel.resultCell(at: indexPath.row)
-        performSegue(withIdentifier: Constants.cellId, sender: selectedEpisode)
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if case segue.identifier = Constants.cellId {
