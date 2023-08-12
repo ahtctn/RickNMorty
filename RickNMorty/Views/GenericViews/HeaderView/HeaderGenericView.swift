@@ -35,16 +35,7 @@ class HeaderGenericView: UIView {
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
     
-    func addLottieAnimation(animationName: String) {
-        let animationView = LottieAnimationView(name: animationName)
-        animationView.frame = headerImage.bounds
-        animationView.loopMode = .loop
-        animationView.contentMode = .scaleAspectFit
-        headerImage.addSubview(animationView)
-        
-        animationView.play()
+    func addAnimation(animationName: String) {
+        AnimationHelper.addLottieAnimation(animationName: animationName, viewToAnimate: headerImage)
     }
-    
-    
-    
 }

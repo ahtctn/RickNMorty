@@ -103,9 +103,14 @@ class EpisodesViewModel {
     }
     
     func searchEpisodes(with query: String) {
-        filteredEpisodes = episodes.filter {
-            $0.episode.lowercased().contains(query.lowercased())
+        if query.isEmpty || query.count < 3 {
+            self.filteredEpisodes = []
+        } else {
+            self.filteredEpisodes = self.episodes.filter {
+                $0.name.lowercased().contains(query.lowercased())
+            }
         }
+        
     }
 }
 

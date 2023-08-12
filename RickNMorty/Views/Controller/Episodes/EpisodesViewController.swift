@@ -15,7 +15,8 @@ class EpisodesViewController: UIViewController, UITextFieldDelegate {
     private let viewModel = EpisodesViewModel()
     
     private var isFiltering: Bool {
-        return !searchTextField.text!.isEmpty
+        var textFieldCount: Int = searchTextField.text!.count
+        return textFieldCount > 3 ? true : false
     }
     
     let selectedImage = UIImage(named: "tv")
@@ -51,7 +52,15 @@ class EpisodesViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc private func searchTextFieldDidChange(_ textField: UITextField) {
-        self.tableView.reloadData()
+        if let textToEnter = textField.text {
+            DispatchQueue.main.async {
+                Filtering.filterAndReloadData(with: textToEnter, reloadDataFunction: {
+                    self.viewModel.searchEpisodes(with: textToEnter)
+                }, tableView: self.tableView)
+            }
+        } else {
+            Filtering.filterAndReloadData(with: "", reloadDataFunction: self.viewModel.getEpisodes, tableView: self.tableView)
+        }
     }
     
     private func setTabbarImage() {
@@ -161,6 +170,4 @@ extension EpisodesViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
-    
-    
 }

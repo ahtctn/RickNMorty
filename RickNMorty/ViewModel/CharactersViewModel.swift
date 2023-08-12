@@ -108,12 +108,13 @@ class CharactersViewModel {
     }
     
     func searchCharacters(with query: String) {
-        if query.isEmpty {
-            filteredCharacters = []
+        if query.isEmpty || query.count < 3 {
+            self.filteredCharacters = []
         } else {
-            filteredCharacters = characters.filter { $0.name.lowercased().contains(query.lowercased()) }
+            self.filteredCharacters = self.characters.filter { $0.name.lowercased().contains(query.lowercased()) }
         }
     }
+
     
 }
 

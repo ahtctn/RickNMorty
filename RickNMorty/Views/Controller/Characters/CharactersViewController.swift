@@ -11,14 +11,22 @@ class CharactersViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var noResultView: NoResultView!
+    @IBOutlet weak var containerView: UIView!
+    
+    private var lastContentOffset: CGFloat = 0.0
+    private var searchTextFieldOriginalHeight: CGFloat = 44.0
+    
+    
+    private var searchTextFieldOriginalY: CGFloat = 0.0
+    private var isSearchTextFieldVisible = true
     
     private var viewModel = CharactersViewModel()
     
     private var isFiltering: Bool {
-        return !searchTextField.text!.isEmpty
+        let textFieldCount: Int = searchTextField.text!.count
+        return textFieldCount > 3 ? true : false
     }
-    
-    let searchBar = UISearchBar()
     
     let selectedImage = UIImage(named: "characters")
     let unselectedImage = UIImage(named: "charactersUnselected")
@@ -29,10 +37,42 @@ class CharactersViewController: UIViewController, UISearchBarDelegate {
         observeEvent()
         setTabbarImage()
         tabbarDelegations()
+        noResultView.isHidden = true
+        
+        searchTextFieldOriginalY = searchTextField.frame.origin.y
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        containerView.frame.size.height = tableView.contentSize.height + searchTextField.frame.size.height
+    }
+    
+    
+    private func setNoResultView() {
+        AnimationHelper.addLottieAnimation(animationName: "noResultBackgroundClouds", viewToAnimate: noResultView)
+        AnimationHelper.addLottieAnimation(animationName: "noResultForeground", viewToAnimate: noResultView)
+        
+        if let textToEnter = searchTextField.text {
+            let labelText = "No results for \(textToEnter)"
+            
+            let attributedString = NSMutableAttributedString(string: labelText)
+            
+            guard let greenColor = UIColor(named: "greenColor") else { fatalError("color error") }
+            guard let orangeColor = UIColor(named: "orangeColor") else { fatalError("color Error")}
+            
+            let rangeOfNoResults = (labelText as NSString).range(of: "No results for")
+            attributedString.addAttribute(.foregroundColor, value: greenColor, range: rangeOfNoResults)
+            
+            let rangeOfSearchTextField = (labelText as NSString).range(of: textToEnter)
+            attributedString.addAttribute(.foregroundColor, value: orangeColor, range: rangeOfSearchTextField)
+            
+            noResultView.noResultLabel.attributedText = attributedString
+        }
     }
     
     private func tabbarDelegations() {
-        self.tabBarController?.navigationItem.title = "Episodes"
+        self.tabBarController?.navigationItem.title = "Characters"
         self.navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.backgroundColor = UIColor(named: "greenColor")
         let attirbutes = [NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -40,13 +80,12 @@ class CharactersViewController: UIViewController, UISearchBarDelegate {
     }
     
     private func delegations() {
-        //searchTextField.delegate = self
         searchTextField.addTarget(self, action: #selector(searchTextFieldDidChange(_:)), for: .editingChanged)
         tableView.register(UINib(nibName: "CharactersTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.cellId)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100 // Örneğin, ortalama bir hücre yüksekliği
+        tableView.estimatedRowHeight = 100
     }
     
     private func observeEvent() {
@@ -76,21 +115,28 @@ class CharactersViewController: UIViewController, UISearchBarDelegate {
     
     @objc private func searchTextFieldDidChange(_ textField: UITextField) {
         if let textToEnter = textField.text {
-            if textToEnter.isEmpty || textToEnter.count < 3 {
-                DispatchQueue.main.async {
-                    self.viewModel.getCharacters()
-                    self.tableView.reloadData()
-                }
-            }
-            else {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                Filtering.filterAndReloadData(with: textToEnter, reloadDataFunction: {
                     self.viewModel.searchCharacters(with: textToEnter)
-                    self.tableView.reloadData()
-                }
+                }, tableView: self.tableView)
+                self.updateNoResultViewVisibility()
             }
         }
+        else {
+            Filtering.filterAndReloadData(with: "", reloadDataFunction: self.viewModel.getCharacters, tableView: self.tableView)
+            self.updateNoResultViewVisibility()
+        }
     }
-
+    
+    private func updateNoResultViewVisibility() {
+        if isFiltering && viewModel.filteredCharacters.isEmpty {
+            noResultView.isHidden = false
+            setNoResultView()
+        } else {
+            noResultView.isHidden = true
+        }
+    }
+    
 }
 
 extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
@@ -100,6 +146,10 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             return self.viewModel.numberOfRows()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -139,34 +189,34 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollViewHeight = scrollView.frame.size.height
-        let scrollContentSizeHeight = scrollView.contentSize.height
         let scrollOffset = scrollView.contentOffset.y
         
         if scrollOffset <= 100 {
             self.viewModel.getPrevPage()
-        }
-        
-        else if scrollOffset + scrollViewHeight >= scrollContentSizeHeight - 100 {
+        } else if scrollOffset + scrollViewHeight >= scrollView.contentSize.height - 100 {
             self.viewModel.getNextPage()
         }
         
-        if scrollOffset > 0 {
-            if searchTextField.frame.origin.y == 0 {
+        if scrollOffset == 0 || scrollOffset < lastContentOffset {
+                // En başta veya yukarıya kaydırma işlemi durduğunda
                 UIView.animate(withDuration: 0.3) {
-                    self.searchTextField.frame.origin.y = -self.searchTextField.frame.height
+                    self.searchTextField.isHidden = false
+                    self.searchTextFieldHeightConstraint.constant = self.searchTextFieldOriginalHeight
+                    self.containerView.layoutIfNeeded()
+                }
+            } else if scrollOffset > lastContentOffset {
+                // Aşağıya kaydırma işlemi
+                UIView.animate(withDuration: 0.3) {
+                    self.searchTextField.isHidden = true
+                    self.searchTextFieldHeightConstraint.constant = 0
+                    self.containerView.layoutIfNeeded()
                 }
             }
-        } else {
-            if searchTextField.frame.origin.y < 0 {
-                UIView.animate(withDuration: 0.3) {
-                    self.searchTextField.frame.origin.y = 0
-                }
-            }
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+            
+            lastContentOffset = scrollOffset
     }
 }
+
+
+
 

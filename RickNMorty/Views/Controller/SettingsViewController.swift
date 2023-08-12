@@ -8,7 +8,6 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    @IBOutlet weak var headerView: HeaderGenericView!
     
     @IBOutlet weak var githubButton: UIButton!
     @IBOutlet weak var linkedinButton: UIButton!
@@ -22,6 +21,8 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         tabBarItem = UITabBarItem(title: "", image: unselectedImage, selectedImage: selectedImage)
+
+        
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {

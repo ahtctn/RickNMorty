@@ -78,7 +78,6 @@ class EpisodesDetailViewController: UIViewController {
             case .dataLoaded:
                 print("data loaded")
                 DispatchQueue.main.async {
-                    //self?.tableView.reloadData()
                     self.collectionView.reloadData()
                 }
             case .error(let error):
