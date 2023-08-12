@@ -12,10 +12,7 @@ class CharactersViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var noResultView: NoResultView!
-    @IBOutlet weak var containerView: UIView!
-    
     private var lastContentOffset: CGFloat = 0.0
-    private var searchTextFieldOriginalHeight: CGFloat = 44.0
     
     
     private var searchTextFieldOriginalY: CGFloat = 0.0
@@ -42,13 +39,6 @@ class CharactersViewController: UIViewController, UISearchBarDelegate {
         searchTextFieldOriginalY = searchTextField.frame.origin.y
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        containerView.frame.size.height = tableView.contentSize.height + searchTextField.frame.size.height
-    }
-    
-    
     private func setNoResultView() {
         AnimationHelper.addLottieAnimation(animationName: "noResultBackgroundClouds", viewToAnimate: noResultView)
         AnimationHelper.addLottieAnimation(animationName: "noResultForeground", viewToAnimate: noResultView)
@@ -70,6 +60,7 @@ class CharactersViewController: UIViewController, UISearchBarDelegate {
             noResultView.noResultLabel.attributedText = attributedString
         }
     }
+    
     
     private func tabbarDelegations() {
         self.tabBarController?.navigationItem.title = "Characters"
@@ -189,31 +180,33 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollViewHeight = scrollView.frame.size.height
+        let scrollContentSizeHeight = scrollView.contentSize.height
         let scrollOffset = scrollView.contentOffset.y
         
         if scrollOffset <= 100 {
             self.viewModel.getPrevPage()
-        } else if scrollOffset + scrollViewHeight >= scrollView.contentSize.height - 100 {
+        }
+        
+        else if scrollOffset + scrollViewHeight >= scrollContentSizeHeight - 100 {
             self.viewModel.getNextPage()
         }
         
         if scrollOffset == 0 || scrollOffset < lastContentOffset {
-                // En başta veya yukarıya kaydırma işlemi durduğunda
-                UIView.animate(withDuration: 0.3) {
-                    self.searchTextField.isHidden = false
-                    self.searchTextFieldHeightConstraint.constant = self.searchTextFieldOriginalHeight
-                    self.containerView.layoutIfNeeded()
-                }
-            } else if scrollOffset > lastContentOffset {
-                // Aşağıya kaydırma işlemi
-                UIView.animate(withDuration: 0.3) {
-                    self.searchTextField.isHidden = true
-                    self.searchTextFieldHeightConstraint.constant = 0
-                    self.containerView.layoutIfNeeded()
-                }
+            // En başta veya yukarıya kaydırma işlemi durduğunda
+            UIView.animate(withDuration: 0.3) {
+                self.searchTextField.isHidden = false
+                
             }
-            
-            lastContentOffset = scrollOffset
+        }
+        else if scrollOffset > lastContentOffset {
+            // Aşağıya kaydırma işlemi
+            UIView.animate(withDuration: 0.3) {
+                self.searchTextField.isHidden = true
+                
+            }
+        }
+        
+        lastContentOffset = scrollOffset
     }
 }
 

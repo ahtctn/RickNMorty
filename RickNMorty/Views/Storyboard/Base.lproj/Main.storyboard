@@ -151,18 +151,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lch-Kn-hsp" customClass="NoResultView" customModule="RickNMorty" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="91" width="390" height="620"/>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="f8j-LS-xNX">
                                 <rect key="frame" x="0.0" y="91" width="390" height="610"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="uci-D3-qUI">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="128"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                </view>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lch-Kn-hsp" customClass="NoResultView" customModule="RickNMorty" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="91" width="390" height="620"/>
+                            </view>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Look for a character" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cvc-hV-sEd">
                                 <rect key="frame" x="20" y="711" width="350" height="40"/>
                                 <color key="backgroundColor" name="lightGreenColor"/>
@@ -173,9 +168,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dq5-Im-AvY">
-                                <rect key="frame" x="0.0" y="613" width="390" height="128"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iPf-cC-mKM"/>
                         <color key="backgroundColor" name="greenColor"/>
@@ -186,7 +178,6 @@
                             <constraint firstItem="f8j-LS-xNX" firstAttribute="top" secondItem="iPf-cC-mKM" secondAttribute="top" id="E1r-CZ-BpZ"/>
                             <constraint firstItem="cvc-hV-sEd" firstAttribute="top" secondItem="f8j-LS-xNX" secondAttribute="bottom" constant="10" id="KG1-kR-epz"/>
                             <constraint firstItem="cvc-hV-sEd" firstAttribute="bottom" secondItem="iPf-cC-mKM" secondAttribute="bottom" constant="-10" id="M8f-Lo-AmK"/>
-                            <constraint firstItem="Dq5-Im-AvY" firstAttribute="top" secondItem="pHr-qu-WNy" secondAttribute="top" id="Tnj-ga-SaR"/>
                             <constraint firstItem="iPf-cC-mKM" firstAttribute="trailing" secondItem="lch-Kn-hsp" secondAttribute="trailing" id="Vu7-Tj-Ohi"/>
                             <constraint firstItem="iPf-cC-mKM" firstAttribute="trailing" secondItem="f8j-LS-xNX" secondAttribute="trailing" id="dQm-r2-2tt"/>
                             <constraint firstItem="cvc-hV-sEd" firstAttribute="leading" secondItem="iPf-cC-mKM" secondAttribute="leading" constant="20" id="ih2-er-EVo"/>
@@ -200,7 +191,6 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="15"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="containerView" destination="Dq5-Im-AvY" id="Qby-G4-0yh"/>
                         <outlet property="noResultView" destination="lch-Kn-hsp" id="5zW-Ay-Snv"/>
                         <outlet property="searchTextField" destination="cvc-hV-sEd" id="CAX-GF-Nu0"/>
                         <outlet property="tableView" destination="f8j-LS-xNX" id="T7P-l6-1IK"/>
