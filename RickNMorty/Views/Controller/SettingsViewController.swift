@@ -19,10 +19,16 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tabbarDelegations()
+    }
+    
+    private func tabbarDelegations() {
         tabBarItem = UITabBarItem(title: "", image: unselectedImage, selectedImage: selectedImage)
-
-        
+        self.tabBarController?.navigationItem.title = "Info"
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.backgroundColor = UIColor(named: "greenColor")
+        let attirbutes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = attirbutes
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {

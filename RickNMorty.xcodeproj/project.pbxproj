@@ -262,8 +262,8 @@
 		7B60F9DA2A7A82200097EC66 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				7B9AB16A2A8A71B30081C4F0 /* LaunchScreenController */,
 				7B60F9C62A7A81690097EC66 /* Main.storyboard */,
-				7B60F9CB2A7A816A0097EC66 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -363,6 +363,14 @@
 				7B6E15D52A86F87E00521CD8 /* NoResultView.xib */,
 			);
 			path = NoResultView;
+			sourceTree = "<group>";
+		};
+		7B9AB16A2A8A71B30081C4F0 /* LaunchScreenController */ = {
+			isa = PBXGroup;
+			children = (
+				7B60F9CB2A7A816A0097EC66 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreenController;
 			sourceTree = "<group>";
 		};
 		7BE7B9222A83D58E0089FD89 /* EpisodeCharactersCollectionViewCell */ = {

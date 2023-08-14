@@ -69,7 +69,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Hh-zQ-CFJ">
-                                                <rect key="frame" x="0.0" y="55" width="380" height="88.666666666666686"/>
+                                                <rect key="frame" x="0.0" y="55.000000000000007" width="380" height="88.666666666666686"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZg-cN-dDj">
                                                         <rect key="frame" x="0.0" y="0.0" width="95" height="88.666666666666671"/>
@@ -386,6 +386,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aAo-ib-Zw5">
                                 <rect key="frame" x="0.0" y="91" width="390" height="610"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="GJF-NH-iAX" customClass="NoResultView" customModule="RickNMorty" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="610"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Loof for an episode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EWR-eC-ggE">
                                 <rect key="frame" x="20" y="711" width="350" height="40"/>
@@ -416,6 +421,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="15"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="noResultView" destination="GJF-NH-iAX" id="qu3-79-Q1x"/>
                         <outlet property="searchTextField" destination="EWR-eC-ggE" id="8QH-d7-KbP"/>
                         <outlet property="tableView" destination="aAo-ib-Zw5" id="9Tv-7U-NpG"/>
                         <segue destination="uGf-4l-h4T" kind="show" identifier="CellId" id="gZ4-xr-14c"/>

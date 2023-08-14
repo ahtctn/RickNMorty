@@ -11,11 +11,16 @@ class EpisodesViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var noResultView: NoResultView!
+    private var lastContentOffset: CGFloat = 0.0
+    
+    private var searchTextFieldOriginalY: CGFloat = 0.0
+    private var isSearchTextFieldVisible = true
     
     private let viewModel = EpisodesViewModel()
     
     private var isFiltering: Bool {
-        var textFieldCount: Int = searchTextField.text!.count
+        let textFieldCount: Int = searchTextField.text!.count
         return textFieldCount > 3 ? true : false
     }
     
@@ -28,6 +33,31 @@ class EpisodesViewController: UIViewController, UITextFieldDelegate {
         observeEvent()
         setTabbarImage()
         tabbarDelegations()
+        noResultView.isHidden = true
+        
+        searchTextFieldOriginalY = searchTextField.frame.origin.y
+    }
+    
+    private func setNoResultView() {
+        AnimationHelper.addLottieAnimation(animationName: "noResultBackgroundClouds", viewToAnimate: noResultView)
+        AnimationHelper.addLottieAnimation(animationName: "noResultForeground", viewToAnimate: noResultView)
+        
+        if let textToEnter = searchTextField.text {
+            let labelText = "No results for \(textToEnter)"
+            
+            let attributedString = NSMutableAttributedString(string: labelText)
+            
+            guard let greenColor = UIColor(named: "greenColor") else { fatalError("color error") }
+            guard let orangeColor = UIColor(named: "orangeColor") else { fatalError("color Error")}
+            
+            let rangeOfNoResults = (labelText as NSString).range(of: "No results for")
+            attributedString.addAttribute(.foregroundColor, value: greenColor, range: rangeOfNoResults)
+            
+            let rangeOfSearchTextField = (labelText as NSString).range(of: textToEnter)
+            attributedString.addAttribute(.foregroundColor, value: orangeColor, range: rangeOfSearchTextField)
+            
+            noResultView.noResultLabel.attributedText = attributedString
+        }
     }
     
     private func tabbarDelegations() {
@@ -47,7 +77,7 @@ class EpisodesViewController: UIViewController, UITextFieldDelegate {
             self.tableView.dataSource = self
             self.tableView.delegate = self
             self.tableView.rowHeight = UITableView.automaticDimension
-            self.tableView.estimatedRowHeight = 100 // Örneğin, ortalama bir hücre yüksekliği
+            self.tableView.estimatedRowHeight = 100
         }
     }
     
@@ -57,9 +87,20 @@ class EpisodesViewController: UIViewController, UITextFieldDelegate {
                 Filtering.filterAndReloadData(with: textToEnter, reloadDataFunction: {
                     self.viewModel.searchEpisodes(with: textToEnter)
                 }, tableView: self.tableView)
+                self.updateNoResultViewVisibility()
             }
         } else {
             Filtering.filterAndReloadData(with: "", reloadDataFunction: self.viewModel.getEpisodes, tableView: self.tableView)
+            self.updateNoResultViewVisibility()
+        }
+    }
+    
+    private func updateNoResultViewVisibility() {
+        if isFiltering && viewModel.filteredEpisodes.isEmpty {
+            noResultView.isHidden = false
+            setNoResultView()
+        } else {
+            noResultView.isHidden = true
         }
     }
     
@@ -141,19 +182,22 @@ extension EpisodesViewController: UITableViewDataSource, UITableViewDelegate {
             self.viewModel.getNextPage()
         }
         
-        if scrollOffset > 0 {
-            if searchTextField.frame.origin.y == 0 {
-                UIView.animate(withDuration: 0.3) {
-                    self.searchTextField.frame.origin.y = -self.searchTextField.frame.height
-                }
-            }
-        } else {
-            if searchTextField.frame.origin.y < 0 {
-                UIView.animate(withDuration: 0.3) {
-                    self.searchTextField.frame.origin.y = 0
-                }
+        if scrollOffset == 0 || scrollOffset < lastContentOffset {
+            // En başta veya yukarıya kaydırma işlemi durduğunda
+            UIView.animate(withDuration: 0.3) {
+                self.searchTextField.isHidden = false
+                
             }
         }
+        else if scrollOffset > lastContentOffset {
+            // Aşağıya kaydırma işlemi
+            UIView.animate(withDuration: 0.3) {
+                self.searchTextField.isHidden = true
+                
+            }
+        }
+        
+        lastContentOffset = scrollOffset
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

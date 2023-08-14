@@ -61,7 +61,6 @@ class CharactersViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
-    
     private func tabbarDelegations() {
         self.tabBarController?.navigationItem.title = "Characters"
         self.navigationController?.navigationBar.barTintColor = .white
