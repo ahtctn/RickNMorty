@@ -12,8 +12,8 @@ class CharactersViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var noResultView: NoResultView!
-    private var lastContentOffset: CGFloat = 0.0
     
+    private var lastContentOffset: CGFloat = 0.0
     
     private var searchTextFieldOriginalY: CGFloat = 0.0
     private var isSearchTextFieldVisible = true
@@ -143,7 +143,7 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var item: ResultsModel
+        var item: ResultsCharactersModel
         
         if isFiltering {
             item = viewModel.filteredCharacters[indexPath.row]
@@ -161,7 +161,7 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let selectedCharacter: ResultsModel
+        let selectedCharacter: ResultsCharactersModel
         
         if isFiltering {
             selectedCharacter = viewModel.filteredCharacters[indexPath.row]

@@ -27,6 +27,7 @@ protocol EndpointProtocol {
 enum Endpoint<T: Decodable> {
     case getCharacters
     case getEpisodes
+    case getLocations
     case custom(url: String)
 }
 
@@ -41,6 +42,8 @@ extension Endpoint: EndpointProtocol {
             return Constants.pathCharacters
         case .getEpisodes:
             return Constants.pathEpisodes
+        case .getLocations:
+            return Constants.pathLocation
         case .custom(url: let url):
             return url
         }

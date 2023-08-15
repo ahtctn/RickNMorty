@@ -25,7 +25,7 @@ class CharactersDetailViewController: UIViewController {
     private var charactersVM = CharactersViewModel()
     
     
-    var character: ResultsModel?
+    var character: ResultsCharactersModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()

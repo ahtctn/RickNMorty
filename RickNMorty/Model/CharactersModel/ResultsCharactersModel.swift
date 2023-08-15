@@ -7,12 +7,11 @@
 
 import Foundation
 
-// MARK: - Result
-struct ResultsModel: Codable {
+struct ResultsCharactersModel: Codable {
     let id: Int
     let name, status, species, type: String
     let gender: String
-    let origin, location: LocationModel
+    let origin, location: LocationCharactersModel
     let image: String?
     let episode: [String]
     let url: String

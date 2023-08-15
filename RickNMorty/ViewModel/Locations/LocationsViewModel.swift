@@ -1,15 +1,15 @@
 //
-//  EpisodesViewModel.swift
+//  LocationsViewModel.swift
 //  RickNMorty
 //
-//  Created by Ahmet Ali ÇETİN on 7.08.2023.
+//  Created by Ahmet Ali ÇETİN on 15.08.2023.
 //
 
 import Foundation
 
-class EpisodesViewModel {
-    var episodes: [ResultEpisodesModel] = []
-    var filteredEpisodes: [ResultEpisodesModel] = []
+class LocationViewModel {
+    var locations: [ResultLocationModel] = []
+    var filteredLocations: [ResultLocationModel] = []
     
     var eventHandler: ((_ event: Event) -> Void)?
     
@@ -19,17 +19,16 @@ class EpisodesViewModel {
     private var isNextPageUrlWarningShown: Bool = false
     private var isPrevPageUrlWarningShown: Bool = false
     
-    
-    func getEpisodes() {
+    func getLocation() {
         self.eventHandler?(.loading)
-        NetworkManager.shared.getEpisodes { result in
+        NetworkManager.shared.getLocations { result in
             switch result {
-            case .success(let episodes):
-                self.episodes = episodes.results
-                self.nextPageUrl = episodes.info?.next
+            case .success(let locations):
+                self.locations = locations.results
+                self.nextPageUrl = locations.info.next
                 self.eventHandler?(.dataLoaded)
             case .failure(let error):
-                print("\(error.localizedDescription) get episodes error in episodesViewModel class.")
+                print("\(error.localizedDescription) get locations error in locationsviewmodel class.")
             }
         }
     }
@@ -41,11 +40,11 @@ class EpisodesViewModel {
         }
         
         self.eventHandler?(.loading)
-        NetworkManager.shared.getOtherPagesEpisodes(url: nextPageUrl) { [weak self] result in
+        NetworkManager.shared.getOtherPagesLocations(url: nextPageUrl) { [weak self] result in
             switch result {
-            case .success(let episodes):
-                self?.episodes.append(contentsOf: episodes.results)
-                self?.nextPageUrl = episodes.info?.next
+            case .success(let locations):
+                self?.locations.append(contentsOf: locations.results)
+                self?.nextPageUrl = locations.info.next
                 self?.eventHandler?(.dataLoaded)
             case .failure(let error):
                 print(error.localizedDescription)
@@ -61,15 +60,14 @@ class EpisodesViewModel {
         }
         
         self.eventHandler?(.loading)
-        NetworkManager.shared.getOtherPagesEpisodes(url: prevPageUrl) { [weak self] result in
+        NetworkManager.shared.getOtherPagesLocations(url: prevPageUrl) { [weak self] result in
             switch result {
-            case .success(let episodes):
-                self?.episodes.append(contentsOf: episodes.results)
-                self?.nextPageUrl = episodes.info?.next
+            case .success(let locations):
+                self?.locations.append(contentsOf: locations.results)
+                self?.nextPageUrl = locations.info.prev
                 self?.eventHandler?(.dataLoaded)
             case .failure(let error):
                 print(error.localizedDescription)
-                print("error'a giriyor'")
                 self?.eventHandler?(.error(error))
             }
         }
@@ -95,26 +93,25 @@ class EpisodesViewModel {
     }
     
     func numberOfRows() -> Int {
-        return self.episodes.count
+        return self.locations.count
     }
     
-    func resultCell(at index: Int) -> ResultEpisodesModel {
-        return self.episodes[index]
+    func resultCell(at index: Int) -> ResultLocationModel {
+        return self.locations[index]
     }
     
-    func searchEpisodes(with query: String) {
+    func searchLocations(with query: String) {
         if query.isEmpty || query.count < 3 {
-            self.filteredEpisodes = []
+            self.filteredLocations = []
         } else {
-            self.filteredEpisodes = self.episodes.filter {
+            self.filteredLocations = self.locations.filter {
                 $0.name.lowercased().contains(query.lowercased())
             }
         }
-        
     }
 }
 
-extension EpisodesViewModel {
+extension LocationViewModel {
     enum Event {
         case loading
         case stopLoading

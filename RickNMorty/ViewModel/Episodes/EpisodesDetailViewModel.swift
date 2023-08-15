@@ -10,12 +10,12 @@ import Foundation
 class EpisodesDetailViewModel {
     var eventHandler: ((_ event: Event) -> Void)?
     private var episodeCharacterUrls: [String] = []
-    var characters: [ResultsModel] = []
+    var characters: [ResultsCharactersModel] = []
     
     func getCharactersInEpisode(with urls: [String]) {
         self.eventHandler?(.loading)
         
-        var characters: [ResultsModel] = [] // Boş bir dizi oluştur
+        var characters: [ResultsCharactersModel] = [] // Boş bir dizi oluştur
         self.episodeCharacterUrls = urls // Değişiklik: URL'leri sakla
         
         let dispatchGroup = DispatchGroup() // DispatchGroup kullanarak her karakter için ayrı ayrı requestleri bekleteceğiz
@@ -46,7 +46,7 @@ class EpisodesDetailViewModel {
         return self.characters.count
     }
     
-    func resultCell(at index: Int) -> ResultsModel {
+    func resultCell(at index: Int) -> ResultsCharactersModel {
         return self.characters[index]
     }
 }

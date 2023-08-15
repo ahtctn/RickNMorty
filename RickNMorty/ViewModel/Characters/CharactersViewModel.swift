@@ -8,8 +8,8 @@
 import Foundation
 
 class CharactersViewModel {
-    var characters: [ResultsModel] = []
-    var filteredCharacters: [ResultsModel] = []
+    var characters: [ResultsCharactersModel] = []
+    var filteredCharacters: [ResultsCharactersModel] = []
     
     var eventHandler:((_ event: Event) -> Void)?
     
@@ -99,7 +99,7 @@ class CharactersViewModel {
         }
     }
     
-    func resultCell(at index: Int) -> ResultsModel {
+    func resultCell(at index: Int) -> ResultsCharactersModel {
         if !filteredCharacters.isEmpty {
             return filteredCharacters[index]
         } else {

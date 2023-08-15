@@ -111,7 +111,7 @@ class EpisodesViewController: UIViewController, UITextFieldDelegate {
     private func observeEvent() {
         viewModel.getEpisodes()
         
-        viewModel.eventHandler = { [weak self ] event in
+        viewModel.eventHandler = { [weak self] event in
             switch event {
             case .loading:
                 print("data is loading")

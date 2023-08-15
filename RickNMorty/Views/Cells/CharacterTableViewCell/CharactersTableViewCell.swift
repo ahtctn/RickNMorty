@@ -25,7 +25,7 @@ class CharactersTableViewCell: UITableViewCell {
         //fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with item: ResultsModel) {
+    func configure(with item: ResultsCharactersModel) {
         headerLabel.setContentHuggingPriority(UILayoutPriority.required, for: .vertical)
         headerLabel.setContentCompressionResistancePriority(UILayoutPriority.required, for: .vertical)
         

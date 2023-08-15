@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct InfoModel: Codable {
+struct InfoCharactersModel: Codable {
     let count, pages: Int
     let next: String?
     let prev: String?

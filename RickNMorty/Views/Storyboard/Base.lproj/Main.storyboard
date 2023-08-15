@@ -569,16 +569,71 @@
                     <view key="view" contentMode="scaleToFill" id="OTR-at-qfC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Look for a location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lJw-Uh-eVn">
+                                <rect key="frame" x="20" y="711" width="350" height="40"/>
+                                <color key="backgroundColor" name="lightGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="VdO-8z-2NL"/>
+                                </constraints>
+                                <color key="textColor" name="orangeColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cVM-EJ-4mw">
+                                <rect key="frame" x="0.0" y="91" width="390" height="610"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="390" id="8d1-k6-xiR"/>
+                                    <constraint firstAttribute="height" constant="610" id="NOz-cf-s7p"/>
+                                </constraints>
+                            </tableView>
+                            <view contentMode="scaleToFill" id="IzT-Hg-jcu" customClass="NoResultView" customModule="RickNMorty" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="91" width="390" height="610"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="f0A-9C-e6a"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="greenColor"/>
+                        <constraints>
+                            <constraint firstItem="f0A-9C-e6a" firstAttribute="trailing" secondItem="lJw-Uh-eVn" secondAttribute="trailing" constant="20" id="6hU-ke-QN8"/>
+                            <constraint firstItem="f0A-9C-e6a" firstAttribute="bottom" secondItem="lJw-Uh-eVn" secondAttribute="bottom" constant="10" id="9oe-C9-f91"/>
+                            <constraint firstItem="cVM-EJ-4mw" firstAttribute="trailing" secondItem="f0A-9C-e6a" secondAttribute="trailing" id="BbH-Zj-727"/>
+                            <constraint firstItem="cVM-EJ-4mw" firstAttribute="top" secondItem="f0A-9C-e6a" secondAttribute="top" id="EYY-Pf-Xjr"/>
+                            <constraint firstItem="lJw-Uh-eVn" firstAttribute="leading" secondItem="f0A-9C-e6a" secondAttribute="leading" constant="20" id="Nkq-gl-r8A"/>
+                            <constraint firstItem="cVM-EJ-4mw" firstAttribute="leading" secondItem="f0A-9C-e6a" secondAttribute="leading" id="OI6-DD-J3e"/>
+                            <constraint firstItem="cVM-EJ-4mw" firstAttribute="top" secondItem="f0A-9C-e6a" secondAttribute="top" id="Qhi-rk-6Xu"/>
+                            <constraint firstItem="lJw-Uh-eVn" firstAttribute="top" secondItem="cVM-EJ-4mw" secondAttribute="bottom" constant="10" id="bHO-zI-fpo"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="earthUnselected" id="8qt-9h-nEw">
                         <color key="badgeColor" name="greenColor"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="noResultView" destination="IzT-Hg-jcu" id="jws-Dr-1ch"/>
+                        <outlet property="searchTextField" destination="lJw-Uh-eVn" id="SD4-EP-60x"/>
+                        <outlet property="tableView" destination="cVM-EJ-4mw" id="P4g-4L-b6S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Fo-JH-YUS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-626" y="-336"/>
+        </scene>
+        <!--Locations Detail View Controller-->
+        <scene sceneID="EBa-jf-YTR">
+            <objects>
+                <viewController id="Hv6-qZ-dgL" customClass="LocationsDetailViewController" customModule="RickNMorty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XJW-rS-o8J">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="7cJ-Cv-MvW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dr7-bQ-qfJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="171" y="-336"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="apE-qb-5Kd">

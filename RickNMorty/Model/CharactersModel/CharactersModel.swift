@@ -9,6 +9,6 @@ import Foundation
 
 // MARK: - CharactersModel
 struct CharactersModel: Codable {
-    let info: InfoModel?
-    let results: [ResultsModel]
+    let info: InfoCharactersModel?
+    let results: [ResultsCharactersModel]
 }

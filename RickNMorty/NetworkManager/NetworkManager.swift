@@ -64,31 +64,30 @@ class NetworkManager {
         request(endpoint, completion: completion)
     }
     
-    func getEpisodes(completion: @escaping NetworkCompletion<EpisodesModel>) {
-        let endpoint = Endpoint<EpisodesModel>.getEpisodes
-        
-        request(endpoint, completion: completion)
-    }
-    
-    func getCharacterFromEpisode(url: String, completion: @escaping NetworkCompletion<ResultsModel>) {
+    func getCharacterFromEpisode(url: String, completion: @escaping NetworkCompletion<ResultsCharactersModel>) {
         guard let url = URL(string: url.replacingOccurrences(of: Constants.baseURL, with: "")) else {
             print("Get character from episode url is wrong now")
             completion(.failure(.invalidURL))
             return
         }
         
-        let endpoint = Endpoint<ResultsModel>.custom(url: url.absoluteString)
+        let endpoint = Endpoint<ResultsCharactersModel>.custom(url: url.absoluteString)
         request(endpoint, completion: completion)
     }
     
-    func getEpisodesFromCharacter(url: String, completion: @escaping NetworkCompletion<ResultEpisodesModel>) {
+    func getCharacterFromLocation(url: String, completion: @escaping NetworkCompletion<ResultsCharactersModel>) {
         guard let url = URL(string: url.replacingOccurrences(of: Constants.baseURL, with: "")) else {
-            print("Get character from episode url is wrong now.")
+            print("Get character from location url is wrong now")
             completion(.failure(.invalidURL))
             return
         }
         
-        let endpoint = Endpoint<ResultEpisodesModel>.custom(url: url.absoluteString)
+        let endpoint = Endpoint<ResultsCharactersModel>.custom(url: url.absoluteString)
+        request(endpoint, completion: completion)
+    }
+    
+    func getEpisodes(completion: @escaping NetworkCompletion<EpisodesModel>) {
+        let endpoint = Endpoint<EpisodesModel>.getEpisodes
         request(endpoint, completion: completion)
     }
     
@@ -103,6 +102,17 @@ class NetworkManager {
         request(endpoint, completion: completion)
     }
     
+    func getEpisodesFromCharacter(url: String, completion: @escaping NetworkCompletion<ResultEpisodesModel>) {
+        guard let url = URL(string: url.replacingOccurrences(of: Constants.baseURL, with: "")) else {
+            print("Get character from episode url is wrong now.")
+            completion(.failure(.invalidURL))
+            return
+        }
+        
+        let endpoint = Endpoint<ResultEpisodesModel>.custom(url: url.absoluteString)
+        request(endpoint, completion: completion)
+    }
+    
     func getOtherPagesCharacter(url: String, completion: @escaping NetworkCompletion<CharactersModel>) {
         guard let url = URL(string: url.replacingOccurrences(of: Constants.baseURL, with: "" )) else {
             print("Get upper page url is wrong now.")
@@ -114,5 +124,20 @@ class NetworkManager {
         request(endpoint, completion: completion)
     }
     
+    func getLocations(completion: @escaping NetworkCompletion<LocationModel>) {
+        let endpoint = Endpoint<LocationModel>.getLocations
+        request(endpoint, completion: completion)
+    }
+    
+    func getOtherPagesLocations(url: String, completion: @escaping NetworkCompletion<LocationModel>) {
+        guard let url = URL(string: url.replacingOccurrences(of: Constants.baseURL, with: "")) else {
+            print("Get upper page url is wrong now.")
+            completion(.failure(.invalidURL))
+            return
+        }
+        
+        let endpoint = Endpoint<LocationModel>.custom(url: url.absoluteString)
+        request(endpoint, completion: completion)
+    }
     
 }

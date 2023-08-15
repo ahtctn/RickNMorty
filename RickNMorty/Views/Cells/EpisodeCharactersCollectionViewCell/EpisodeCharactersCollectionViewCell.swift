@@ -31,7 +31,7 @@ class EpisodeCharactersCollectionViewCell: UICollectionViewCell {
     }
     
     
-    func configure(with item: ResultsModel) {
+    func configure(with item: ResultsCharactersModel) {
         self.characterImage.setImage(with: item.image ?? Constants.headerImageUrl)
         
         self.characterName.text = item.name

@@ -24,18 +24,10 @@ class EpisodesDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-//        setHeaderView()
         observeEvent()
         delegations()
         
     }
-    
-//    private func setHeaderView() {
-//        headerView.addLottieAnimation(animationName: Constants.HeaderAnimations.mortyTwerking)
-//        if let episode = episodes {
-//            headerView.headerText.text = episode.episode.capitalized
-//        }
-//    }
     
     private func delegations() {
         DispatchQueue.main.async {
