@@ -55,8 +55,4 @@ class SettingsViewController: UIViewController {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
-    
-    
-    
-    
 }

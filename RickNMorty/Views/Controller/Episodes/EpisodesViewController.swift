@@ -24,8 +24,8 @@ class EpisodesViewController: UIViewController, UITextFieldDelegate {
         return textFieldCount > 3 ? true : false
     }
     
-    let selectedImage = UIImage(named: "tv")
-    let unselectedImage = UIImage(named: "tvUnselected")
+    private let selectedImage = UIImage(named: "tv")
+    private let unselectedImage = UIImage(named: "tvUnselected")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,7 +157,6 @@ extension EpisodesViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let selectedEpisode: ResultEpisodesModel
@@ -203,7 +202,6 @@ extension EpisodesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if case segue.identifier = Constants.cellId {

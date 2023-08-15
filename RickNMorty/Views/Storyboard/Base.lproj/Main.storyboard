@@ -141,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fa-7V-p5M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-609" y="459"/>
+            <point key="canvasLocation" x="-626" y="994"/>
         </scene>
         <!--Characters View Controller-->
         <scene sceneID="qdp-jd-5KY">
@@ -198,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geG-tI-9bF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="170.76923076923077" y="-17.061611374407583"/>
+            <point key="canvasLocation" x="-626" y="336"/>
         </scene>
         <!--Characters Detail View Controller-->
         <scene sceneID="dtX-N8-FNJ">
@@ -373,7 +373,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePG-DO-Tii" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1089" y="-17"/>
+            <point key="canvasLocation" x="186" y="336"/>
         </scene>
         <!--Episodes View Controller-->
         <scene sceneID="1pp-G3-qR2">
@@ -429,7 +429,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rCK-uk-yzU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-609.23076923076917" y="-320.61611374407579"/>
+            <point key="canvasLocation" x="-626" y="-1015"/>
         </scene>
         <!--Episodes Detail View Controller-->
         <scene sceneID="QCP-oj-fNS">
@@ -524,7 +524,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIo-ZP-xfT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="171" y="-675"/>
+            <point key="canvasLocation" x="171" y="-1015"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="J6X-Hu-VJP">
@@ -555,11 +555,30 @@
                         <segue destination="OzD-gC-gfK" kind="relationship" relationship="viewControllers" id="nMT-e8-3u4"/>
                         <segue destination="n5B-0e-mwu" kind="relationship" relationship="viewControllers" id="eyf-ge-zW0"/>
                         <segue destination="Kba-ll-BHv" kind="relationship" relationship="viewControllers" id="NkH-ub-ys4"/>
+                        <segue destination="Ucp-h1-ZkB" kind="relationship" relationship="viewControllers" id="7Q7-3I-BeG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kAZ-cg-eKk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1518" y="-17"/>
+        </scene>
+        <!--Locations View Controller-->
+        <scene sceneID="bsB-VJ-1Ou">
+            <objects>
+                <viewController id="Ucp-h1-ZkB" customClass="LocationsViewController" customModule="RickNMorty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OTR-at-qfC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="f0A-9C-e6a"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="earthUnselected" id="8qt-9h-nEw">
+                        <color key="badgeColor" name="greenColor"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Fo-JH-YUS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-626" y="-336"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="apE-qb-5Kd">
@@ -581,6 +600,7 @@
     </scenes>
     <resources>
         <image name="characters" width="55" height="55"/>
+        <image name="earthUnselected" width="55" height="55"/>
         <image name="gearUnselected" width="55" height="55"/>
         <image name="githubLogo" width="55" height="55"/>
         <image name="gmailLogo" width="55" height="31"/>
