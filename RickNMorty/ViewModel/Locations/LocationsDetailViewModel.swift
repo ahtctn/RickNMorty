@@ -10,7 +10,7 @@ import Foundation
 class LocationsDetailViewModel {
     var eventHandler: ((_ event: Event) -> Void)?
     private var locationCharacterUrls: [String] = []
-    private var charcters: [ResultsCharactersModel] = []
+    var charcters: [ResultsCharactersModel] = []
     
     func getCharactersInLocation(with urls: [String]) {
         self.eventHandler?(.loading)

@@ -1,7 +1,7 @@
 //
 //  EpisodesDetailViewModel.swift
 //  RickNMorty
-//
+//ö
 //  Created by Ahmet Ali ÇETİN on 9.08.2023.
 //
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class SettingsViewController: UIViewController {
     
@@ -33,18 +34,18 @@ class SettingsViewController: UIViewController {
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         switch sender.tag {
-        //GitHub
+            //GitHub
         case 0:
             openLink(urlString: Constants.Links.githubLink)
-        //Linkedin
+            //Linkedin
         case 1:
             openLink(urlString: Constants.Links.linkedinLink)
-        //Twitter
+            //Twitter
         case 2:
             openLink(urlString: Constants.Links.twitterLink)
-        //Gmail
+            //Gmail
         case 3:
-            openLink(urlString: Constants.Links.gmailLink)
+            sendEmail()
         default:
             fatalError("tag error")
         }
@@ -54,5 +55,38 @@ class SettingsViewController: UIViewController {
         if let url = URL(string: urlString) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
+    }
+}
+
+extension SettingsViewController: MFMailComposeViewControllerDelegate {
+    private func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mailComposer = MFMailComposeViewController()
+            mailComposer.mailComposeDelegate = self
+            mailComposer.setToRecipients([Constants.Links.gmailLink])
+            mailComposer.setSubject("About Your App")
+            mailComposer.setMessageBody("E-posta içeriği", isHTML: false)
+            
+            present(mailComposer, animated: true, completion: nil)
+        } else {
+            print("Can't send mail.")
+        }
+    }
+    
+    hfunc mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result {
+        case .cancelled:
+            print("E-posta gönderme iptal edildi.")
+        case .saved:
+            print("E-posta taslağı kaydedildi.")
+        case .sent:
+            print("E-posta başarıyla gönderildi.")
+        case .failed:
+            print("E-posta gönderirken hata oluştu: \(error?.localizedDescription ?? "Belirtilmedi")")
+        default:
+            break
+        }
+        
+        controller.dismiss(animated: true, completion: nil)
     }
 }

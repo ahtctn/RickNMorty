@@ -220,7 +220,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rick Sanchez" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDR-fT-44V">
                                 <rect key="frame" x="10" y="287" width="370" height="36.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="30"/>
-                                <color key="textColor" name="greenColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="39W-ch-net">
@@ -241,7 +241,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otX-XA-jcZ">
                                                 <rect key="frame" x="160" y="0.0" width="130" height="30.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="25"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -261,7 +261,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkQ-l5-Z6p">
                                                 <rect key="frame" x="160" y="0.0" width="130" height="30.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="25"/>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -281,7 +281,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCv-8u-9XL">
                                                 <rect key="frame" x="160" y="0.0" width="130" height="30.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="25"/>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -301,7 +301,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zi-3Q-Jpv">
                                                 <rect key="frame" x="160" y="0.0" width="130" height="30.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="25"/>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -320,7 +320,7 @@
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hjV-rn-hK3">
                                 <rect key="frame" x="0.0" y="544.33333333333337" width="390" height="315.66666666666663"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="juP-s9-DF1">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -340,7 +340,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A2Z-oe-i2Y"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="A2Z-oe-i2Y" firstAttribute="trailing" secondItem="39W-ch-net" secondAttribute="trailing" constant="50" id="2zF-uA-pbD"/>
                             <constraint firstItem="hjV-rn-hK3" firstAttribute="top" secondItem="N5V-T6-AKK" secondAttribute="bottom" constant="10" id="LBt-gA-aid"/>
@@ -444,24 +444,24 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="4n7-lS-DWR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="airdatelabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xI-Ty-Jxg">
-                                <rect key="frame" x="243.66666666666666" y="190" width="126.33333333333334" height="30"/>
+                                <rect key="frame" x="243.66666666666666" y="190.33333333333334" width="126.33333333333334" height="30"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILE-dx-mFo">
-                                <rect key="frame" x="20" y="187" width="143" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <rect key="frame" x="20" y="187" width="135" height="36.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="30"/>
                                 <color key="textColor" red="0.34509804840000002" green="0.34509804840000002" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="      CHARACTERS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymX-9U-kfl">
-                                <rect key="frame" x="-14" y="243" width="404" height="48"/>
+                                <rect key="frame" x="-14" y="243.66666666666663" width="404" height="48"/>
                                 <color key="backgroundColor" name="yellowColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="KzD-pA-PpM"/>
@@ -471,7 +471,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V0o-eu-esp">
-                                <rect key="frame" x="0.0" y="291" width="390" height="519"/>
+                                <rect key="frame" x="0.0" y="291.66666666666669" width="390" height="518.33333333333326"/>
                                 <color key="backgroundColor" name="greenColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T1Y-Ry-dBb">
                                     <size key="itemSize" width="109" height="111"/>
@@ -614,6 +614,7 @@
                         <outlet property="noResultView" destination="IzT-Hg-jcu" id="jws-Dr-1ch"/>
                         <outlet property="searchTextField" destination="lJw-Uh-eVn" id="SD4-EP-60x"/>
                         <outlet property="tableView" destination="cVM-EJ-4mw" id="P4g-4L-b6S"/>
+                        <segue destination="Hv6-qZ-dgL" kind="show" identifier="CellId" id="RHc-Jg-pOt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Fo-JH-YUS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -627,13 +628,91 @@
                     <view key="view" contentMode="scaleToFill" id="XJW-rS-o8J">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMv-2L-qRx">
+                                <rect key="frame" x="15" y="106" width="360" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="Z2t-Gt-9t5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="typeLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwm-QM-6Tg">
+                                <rect key="frame" x="15" y="213" width="120" height="36.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="30"/>
+                                <color key="textColor" red="0.34509804840000002" green="0.34509804840000002" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="dimensionLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byp-y8-RDc">
+                                <rect key="frame" x="204" y="217" width="171" height="30"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    RESIDENTS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kn-Ql-Cn7">
+                                <rect key="frame" x="-5" y="269.66666666666669" width="400" height="48"/>
+                                <color key="backgroundColor" name="yellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Z1L-1L-JXI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qLJ-Qd-XnO">
+                                <rect key="frame" x="0.0" y="317.66666666666669" width="390" height="526.33333333333326"/>
+                                <color key="backgroundColor" name="greenColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vgh-xL-1cn">
+                                    <size key="itemSize" width="109" height="111"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="collectionViewCellID" id="ZFH-NG-18D" customClass="EpisodeCharactersCollectionViewCell" customModule="RickNMorty" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zpk-cB-bjx">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="100" height="100"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="7cJ-Cv-MvW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="greenColor"/>
+                        <constraints>
+                            <constraint firstItem="8Kn-Ql-Cn7" firstAttribute="top" secondItem="nwm-QM-6Tg" secondAttribute="bottom" constant="20" id="3An-Jy-TRD"/>
+                            <constraint firstItem="nwm-QM-6Tg" firstAttribute="leading" secondItem="7cJ-Cv-MvW" secondAttribute="leading" constant="15" id="GWw-Az-1GR"/>
+                            <constraint firstItem="8Kn-Ql-Cn7" firstAttribute="leading" secondItem="XJW-rS-o8J" secondAttribute="leading" constant="-5" id="Gp8-fF-XFz"/>
+                            <constraint firstItem="byp-y8-RDc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nwm-QM-6Tg" secondAttribute="trailing" constant="8" symbolic="YES" id="KPm-4B-8KN"/>
+                            <constraint firstItem="byp-y8-RDc" firstAttribute="top" secondItem="QMv-2L-qRx" secondAttribute="bottom" constant="15" id="LIR-ZE-B5e"/>
+                            <constraint firstItem="QMv-2L-qRx" firstAttribute="leading" secondItem="7cJ-Cv-MvW" secondAttribute="leading" constant="15" id="NQN-fF-GRo"/>
+                            <constraint firstItem="7cJ-Cv-MvW" firstAttribute="trailing" secondItem="byp-y8-RDc" secondAttribute="trailing" constant="15" id="Qwf-2R-o6X"/>
+                            <constraint firstItem="qLJ-Qd-XnO" firstAttribute="top" secondItem="8Kn-Ql-Cn7" secondAttribute="bottom" id="d2F-Xz-heh"/>
+                            <constraint firstAttribute="trailing" secondItem="8Kn-Ql-Cn7" secondAttribute="trailing" constant="-5" id="fRe-6P-1N9"/>
+                            <constraint firstItem="QMv-2L-qRx" firstAttribute="top" secondItem="7cJ-Cv-MvW" secondAttribute="top" constant="15" id="iBO-4h-dTK"/>
+                            <constraint firstItem="qLJ-Qd-XnO" firstAttribute="leading" secondItem="7cJ-Cv-MvW" secondAttribute="leading" id="klX-0g-Hcn"/>
+                            <constraint firstAttribute="bottom" secondItem="qLJ-Qd-XnO" secondAttribute="bottom" id="m8F-3V-r9C"/>
+                            <constraint firstItem="nwm-QM-6Tg" firstAttribute="top" secondItem="QMv-2L-qRx" secondAttribute="bottom" constant="11" id="nhF-Sj-lV8"/>
+                            <constraint firstItem="qLJ-Qd-XnO" firstAttribute="trailing" secondItem="7cJ-Cv-MvW" secondAttribute="trailing" id="x4M-2C-JIT"/>
+                            <constraint firstItem="7cJ-Cv-MvW" firstAttribute="trailing" secondItem="QMv-2L-qRx" secondAttribute="trailing" constant="15" id="z1B-S2-ddi"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="IzP-V7-Rkg"/>
+                    <connections>
+                        <outlet property="collectionView" destination="qLJ-Qd-XnO" id="Vt9-bi-EGn"/>
+                        <outlet property="dimensionLabel" destination="byp-y8-RDc" id="mXV-MT-akQ"/>
+                        <outlet property="locationNameLabel" destination="QMv-2L-qRx" id="KSy-L1-iUD"/>
+                        <outlet property="typeLabel" destination="nwm-QM-6Tg" id="iZE-rv-vUd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dr7-bQ-qfJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="171" y="-336"/>
+            <point key="canvasLocation" x="170.76923076923077" y="-336.25592417061608"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="apE-qb-5Kd">

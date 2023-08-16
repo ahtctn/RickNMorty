@@ -12,7 +12,7 @@ class EpisodesDetailViewController: UIViewController {
     @IBOutlet weak var episodeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var airDateLabel: UILabel!
-    @IBOutlet weak var headerView: HeaderGenericView!
+   
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var episodeDetailVM = EpisodesDetailViewModel()
@@ -118,6 +118,4 @@ extension EpisodesDetailViewController: UICollectionViewDataSource, UICollection
         
         collectionView.deselectItem(at: indexPath, animated: true)
     }
-    
-    
 }
