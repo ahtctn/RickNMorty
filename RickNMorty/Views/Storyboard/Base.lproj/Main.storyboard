@@ -151,23 +151,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWy-Wm-dfe">
+                                <rect key="frame" x="0.0" y="701" width="390" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Look for a character" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cvc-hV-sEd">
+                                        <rect key="frame" x="20" y="10" width="350" height="40"/>
+                                        <color key="backgroundColor" name="lightGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="hK7-f0-5mI"/>
+                                        </constraints>
+                                        <color key="textColor" name="orangeColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" name="greenColor"/>
+                                <constraints>
+                                    <constraint firstItem="cvc-hV-sEd" firstAttribute="leading" secondItem="ZWy-Wm-dfe" secondAttribute="leading" constant="20" id="0xd-xA-ldL"/>
+                                    <constraint firstAttribute="bottom" secondItem="cvc-hV-sEd" secondAttribute="bottom" constant="10" id="P8b-Gg-u6j"/>
+                                    <constraint firstAttribute="trailing" secondItem="cvc-hV-sEd" secondAttribute="trailing" constant="20" id="Xpb-Ln-cWd"/>
+                                    <constraint firstItem="cvc-hV-sEd" firstAttribute="top" secondItem="ZWy-Wm-dfe" secondAttribute="top" constant="10" id="rOS-gA-ROr"/>
+                                    <constraint firstAttribute="height" constant="60" id="w7K-Ye-vUD"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="f8j-LS-xNX">
                                 <rect key="frame" x="0.0" y="91" width="390" height="610"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="610" id="PT8-0e-oD3"/>
+                                </constraints>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lch-Kn-hsp" customClass="NoResultView" customModule="RickNMorty" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="91" width="390" height="620"/>
+                                <rect key="frame" x="0.0" y="91" width="390" height="610"/>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Look for a character" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cvc-hV-sEd">
-                                <rect key="frame" x="20" y="711" width="350" height="40"/>
-                                <color key="backgroundColor" name="lightGreenColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="hK7-f0-5mI"/>
-                                </constraints>
-                                <color key="textColor" name="orangeColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iPf-cC-mKM"/>
                         <color key="backgroundColor" name="greenColor"/>
@@ -176,15 +192,15 @@
                             <constraint firstItem="lch-Kn-hsp" firstAttribute="top" secondItem="iPf-cC-mKM" secondAttribute="top" id="5ZV-j5-Cxa"/>
                             <constraint firstItem="lch-Kn-hsp" firstAttribute="leading" secondItem="iPf-cC-mKM" secondAttribute="leading" id="6dY-L0-lti"/>
                             <constraint firstItem="f8j-LS-xNX" firstAttribute="top" secondItem="iPf-cC-mKM" secondAttribute="top" id="E1r-CZ-BpZ"/>
-                            <constraint firstItem="cvc-hV-sEd" firstAttribute="top" secondItem="f8j-LS-xNX" secondAttribute="bottom" constant="10" id="KG1-kR-epz"/>
-                            <constraint firstItem="cvc-hV-sEd" firstAttribute="bottom" secondItem="iPf-cC-mKM" secondAttribute="bottom" constant="-10" id="M8f-Lo-AmK"/>
+                            <constraint firstItem="ZWy-Wm-dfe" firstAttribute="trailing" secondItem="iPf-cC-mKM" secondAttribute="trailing" id="MxK-0U-Ta6"/>
                             <constraint firstItem="iPf-cC-mKM" firstAttribute="trailing" secondItem="lch-Kn-hsp" secondAttribute="trailing" id="Vu7-Tj-Ohi"/>
+                            <constraint firstItem="lch-Kn-hsp" firstAttribute="bottom" secondItem="f8j-LS-xNX" secondAttribute="bottom" id="dM2-P7-hld"/>
                             <constraint firstItem="iPf-cC-mKM" firstAttribute="trailing" secondItem="f8j-LS-xNX" secondAttribute="trailing" id="dQm-r2-2tt"/>
-                            <constraint firstItem="cvc-hV-sEd" firstAttribute="leading" secondItem="iPf-cC-mKM" secondAttribute="leading" constant="20" id="ih2-er-EVo"/>
-                            <constraint firstItem="cvc-hV-sEd" firstAttribute="top" secondItem="lch-Kn-hsp" secondAttribute="bottom" id="lFa-fq-WCH"/>
+                            <constraint firstItem="ZWy-Wm-dfe" firstAttribute="bottom" secondItem="iPf-cC-mKM" secondAttribute="bottom" id="gpb-bi-Kdy"/>
+                            <constraint firstItem="ZWy-Wm-dfe" firstAttribute="leading" secondItem="iPf-cC-mKM" secondAttribute="leading" id="m4N-EL-QyG"/>
                             <constraint firstItem="f8j-LS-xNX" firstAttribute="top" secondItem="iPf-cC-mKM" secondAttribute="top" id="mXi-5w-jHf"/>
+                            <constraint firstItem="ZWy-Wm-dfe" firstAttribute="top" secondItem="f8j-LS-xNX" secondAttribute="bottom" id="rJH-Bn-cdu"/>
                             <constraint firstItem="f8j-LS-xNX" firstAttribute="leading" secondItem="iPf-cC-mKM" secondAttribute="leading" id="va6-3i-v0T"/>
-                            <constraint firstItem="iPf-cC-mKM" firstAttribute="trailing" secondItem="cvc-hV-sEd" secondAttribute="trailing" constant="20" id="xfk-YM-ejP"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="characters" selectedImage="characters" id="Uee-9l-mJG">
@@ -194,11 +210,12 @@
                         <outlet property="noResultView" destination="lch-Kn-hsp" id="5zW-Ay-Snv"/>
                         <outlet property="searchTextField" destination="cvc-hV-sEd" id="CAX-GF-Nu0"/>
                         <outlet property="tableView" destination="f8j-LS-xNX" id="T7P-l6-1IK"/>
+                        <outlet property="textfieldbackgroundView" destination="ZWy-Wm-dfe" id="Dyl-lQ-32J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geG-tI-9bF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-626" y="336"/>
+            <point key="canvasLocation" x="-626.15384615384619" y="335.54502369668245"/>
         </scene>
         <!--Characters Detail View Controller-->
         <scene sceneID="dtX-N8-FNJ">

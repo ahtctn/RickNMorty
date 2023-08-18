@@ -12,6 +12,7 @@ class CharactersViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var noResultView: NoResultView!
+    @IBOutlet weak var textfieldbackgroundView: UIView!
     
     private var lastContentOffset: CGFloat = 0.0
     
@@ -194,16 +195,33 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
             // En başta veya yukarıya kaydırma işlemi durduğunda
             UIView.animate(withDuration: 0.3) {
                 self.searchTextField.isHidden = false
+                self.textfieldbackgroundView.isHidden = false
                 
+                NSLayoutConstraint.deactivate([
+                    self.textfieldbackgroundView.topAnchor.constraint(equalTo: self.tableView.bottomAnchor),
+                    self.textfieldbackgroundView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                    self.textfieldbackgroundView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                    self.textfieldbackgroundView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+                ])
+                
+                // TextfieldbackgroundView'ı yukarı doğru kaydırma animasyonu
+                self.textfieldbackgroundView.frame.origin.y = self.searchTextFieldOriginalY
+                self.view.layoutIfNeeded()
             }
-        }
-        else if scrollOffset > lastContentOffset {
+        } else if scrollOffset > lastContentOffset {
             // Aşağıya kaydırma işlemi
             UIView.animate(withDuration: 0.3) {
                 self.searchTextField.isHidden = true
+                self.textfieldbackgroundView.isHidden = true
                 
+                NSLayoutConstraint.activate([
+                    self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+                ])
+                
+                self.view.layoutIfNeeded()
             }
         }
+
         
         lastContentOffset = scrollOffset
     }

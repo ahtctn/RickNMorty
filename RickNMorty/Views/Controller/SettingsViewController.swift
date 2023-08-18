@@ -73,7 +73,7 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
         }
     }
     
-    hfunc mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         switch result {
         case .cancelled:
             print("E-posta gönderme iptal edildi.")
